@@ -1,0 +1,25 @@
+---
+import { u } from '../lib/url';
+// Uno scaffale: i libri in piedi mostrano il dorso; al passaggio del mouse escono e girano la copertina.
+import type { Product } from '../lib/catalog';
+import Book from './Book.astro';
+interface Props { products: Product[]; size?: 's' | 'm'; link?: boolean; label?: string }
+const { products, size = 's', link = true, label } = Astro.props;
+const w = size === 's' ? 150 : 230;
+---
+<div class="shelf" role={label ? 'list' : undefined} aria-label={label} data-shelf>
+  {products.map((p) => {
+    const d = Math.min(0.22, Math.max(0.14, 0.12 + p.pages / 500)).toFixed(3);
+    return (
+      <div class="shelf__slot" role={label ? 'listitem' : undefined} style={`--w:${w}px;--d:${d}`} data-shelf-book>
+        {link ? (
+          <a href={u(`/guides/${p.slug}/`)} aria-label={p.shortTitle ? `${p.shortTitle}: ${p.title}` : p.title}>
+            <Book product={p} size={size} pose="spine" minDepth={0.15} style={`--d:${d}`} />
+          </a>
+        ) : (
+          <Book product={p} size={size} pose="spine" minDepth={0.15} style={`--d:${d}`} />
+        )}
+      </div>
+    );
+  })}
+</div>

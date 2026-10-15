@@ -1,0 +1,54 @@
+---
+import { u } from '../lib/url';
+import { config } from '../config';
+import { lines } from '../lib/catalog';
+import { hasArticles } from '../lib/articles';
+import Newsletter from './Newsletter.astro';
+import EtsyIcon from './EtsyIcon.astro';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer panel panel--night">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="tcr-wordmark footer-mark" href={u('/')}><span class="tcr-ring" aria-hidden="true"></span>The Consulting Room</a>
+      <p>{config.tagline}</p>
+      <a class="tcr-btn tcr-btn--on-night" href={config.etsyShop} target="_blank" rel="noopener">Visit the Etsy shop <EtsyIcon /></a>
+    </div>
+    <nav aria-label="Guides by line">
+      <h2>Guides</h2>
+      <ul>
+        {lines.map((l) => <li><a href={u(`/guides/?line=${l.id}`)}>{l.name}</a></li>)}
+        <li><a href={u('/bundles/')}>Bundles</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="About the shop">
+      <h2>The shop</h2>
+      <ul>
+        <li><a href={u('/about/')}>About the author</a></li>
+        <li><a href={u('/institutes/')}>For training institutes</a></li>
+        {hasArticles && <li><a href={u('/articles/')}>Articles</a></li>}
+        <li><a href={u('/faq/')}>Questions</a></li>
+      </ul>
+    </nav>
+    <Newsletter />
+  </div>
+  <div class="wrap footer-base">
+    <p>Every purchase is handled by Etsy. The guides are educational material for clinicians and are not clinical advice.</p>
+    <p><span>© {year} {config.author}</span> <a href={u('/privacy/')}>Privacy</a> <a href={u('/legal/')}>Legal notice</a></p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { padding-block: var(--space-7) var(--space-5); margin-bottom: var(--inset); }
+  .footer-grid { display: grid; gap: var(--space-6); grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 760px) { .footer-grid { grid-template-columns: 1.6fr 1fr 1fr; } }
+  .footer-brand { display: grid; gap: var(--space-4); justify-items: start; max-width: 42ch; }
+  .footer-brand p { color: var(--on-night-muted); font-family: var(--font-serif); font-style: italic; font-size: 18px; line-height: 1.5; }
+  .footer-mark { color: var(--on-night); }
+  h2 { font-family: var(--font-sans); font-size: 13px; font-weight: 600; letter-spacing: 0.01em; color: var(--on-night-muted); margin-bottom: var(--space-3); }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+  a:not(.tcr-btn) { color: var(--on-night); text-decoration-color: color-mix(in srgb, var(--sage) 70%, transparent); }
+  a:not(.tcr-btn):hover { color: var(--sage); }
+  .footer-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3) var(--space-6); margin-block-start: var(--space-7); padding-block-start: var(--space-5); border-block-start: 1px solid color-mix(in srgb, var(--on-night) 16%, transparent); font-size: 14px; color: var(--on-night-muted); }
+  .footer-base p:last-child { display: flex; gap: var(--space-4); }
+</style>

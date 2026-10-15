@@ -1,0 +1,732 @@
+{
+  "pricesCheckedOn": "2026-10-15",
+  "promotion": {
+    "label": "Autumn opening offer",
+    "percent": 30,
+    "ends": "2026-11-10",
+    "note": "Every compendium and worksheet in the shop, as announced on Etsy. Sale prices below were read from the shop on 2026-10-15."
+  },
+  "lines": [
+    {
+      "id": "ai",
+      "name": "AI in therapy",
+      "short": "AI in therapy",
+      "summary": "For the clinical question that arrived before the literature did: what happens to the work when a client spends the night talking to a system that never tires and never disagrees.",
+      "order": 1
+    },
+    {
+      "id": "psychodynamic",
+      "name": "Psychodynamic practice",
+      "short": "Psychodynamic",
+      "summary": "Compendia and instruments for colleagues who want depth without a manual: ADHD read as relational experience, attachment as strategy rather than label, and the word resistance held back a little longer.",
+      "order": 2
+    },
+    {
+      "id": "tools",
+      "name": "Session tools",
+      "short": "Session tools",
+      "summary": "Worksheets and check-ins you can use in session this week, written to produce material for the work rather than scores for a file.",
+      "order": 3
+    }
+  ],
+  "products": [
+    {
+      "id": "4549583610",
+      "slug": "the-space-that-answers-back",
+      "title": "The Space That Answers Back",
+      "subtitle": "Artificial intelligence, structural compliance, and the psychic function of listening in psychotherapy",
+      "line": "ai",
+      "kind": "Clinical compendium",
+      "formats": [
+        "PDF",
+        "EPUB"
+      ],
+      "pages": 38,
+      "summary": "What a chatbot structurally can and cannot do inside the space we call a session.",
+      "description": "Patients are already arriving in session after a night spent talking to a system that never grew tired and never once said something they did not want to hear. This compendium sets out, without alarm and without enthusiasm, what a text-generation system can and cannot do in the place we call a session, and why the difference matters for how people change. It closes with an observation grid to keep beside you in the clinical interview.",
+      "abstract": "Patients increasingly arrive in session after long exchanges with conversational AI systems, and this compendium examines that fact as a clinical phenomenon rather than a technological one. It sets out what a text-generation system structurally can and cannot do inside the space of a session, starting from a property of its training, the tendency to agree with the person it is speaking to, which the compendium calls structural compliance. Against this background the psychic function of listening is described as one that includes disagreement, withheld agreement and silence. The chapters move from the debate in the field and a precise definition of terms to the clinical picture, differential reading, transference and countertransference, adaptations of setting and technique, and the regulatory and ethical landscape, and they close with composite vignettes and an observation grid for the clinical interview.",
+      "whoFor": "Psychotherapists, clinical psychologists and counselors whose clients mention ChatGPT or companion apps in session, and trainees who want a clinical frame for it rather than a technological one.",
+      "inside": [
+        "Preface",
+        "The debate in the field",
+        "A precise definition of terms",
+        "The psychic function of listening in session",
+        "Origins and genesis of the phenomenon",
+        "The mechanism as an adaptive solution",
+        "What we observe in session",
+        "Distinctions and differential diagnosis",
+        "Structural compliance: what is being sold under the language of care",
+        "Transference and countertransference",
+        "Setting and technique adaptations",
+        "The regulatory and ethical landscape",
+        "Clinical vignettes and common errors",
+        "Operational appendix: an observation grid for the clinical interview"
+      ],
+      "price": {
+        "amount": 17.58,
+        "currency": "USD"
+      },
+      "salePrice": 12.3,
+      "etsyUrl": "https://www.etsy.com/listing/4549583610",
+      "featured": true
+    },
+    {
+      "id": "4582411717",
+      "slug": "instruments-not-oracles",
+      "title": "Instruments, Not Oracles",
+      "subtitle": "A practical guide to AI tools for psychotherapists",
+      "line": "ai",
+      "kind": "Practical guide",
+      "formats": [
+        "PDF",
+        "EPUB"
+      ],
+      "pages": 62,
+      "summary": "A working manual for the AI tools already on your desk, taken one family at a time.",
+      "description": "This is the practical companion to the clinical question. It takes each family of tools in turn, from ambient scribes to general-purpose language models, says plainly what each one is good for and what it quietly costs, and marks the point where a useful instrument starts to occupy a place in the setting that was never meant for it. A prompt library, consent language and a thirty-minute protocol for evaluating any tool make it usable on Monday morning.",
+      "abstract": "Many clinicians already use AI tools for notes, letters, literature and administration, often without a shared method for doing so. This practical guide takes each family of tools in turn (ambient scribes, general-purpose language models, evidence and literature tools, psychoeducation materials, supervision preparation and practice operations) and describes what each actually does, what it is good for in a clinical practice, where the risks sit and what a sensible protocol looks like. The frame is psychoanalytic: the guide asks not only how much time a tool saves but what that time was doing for the clinician before. It sets out the non-negotiables of consent, data protection and professional signature, defines what must stay with the clinician, and offers a prompt library, adaptable consent language and a thirty-minute protocol for evaluating any new tool. Products and regulations named are checked as of September 2026.",
+      "whoFor": "Clinicians in private practice who already use, or are being pushed to use, AI for notes, letters, literature or admin, and who want to do it with consent, data protection and their own signature intact.",
+      "inside": [
+        "Part one, the frame: where a tool sits in the setting; consent, data and the professional's signature",
+        "Part two, the families of tools: session documentation and ambient scribes, general-purpose language models, evidence and literature tools, psychoeducation and between-session materials, reflective practice and supervision preparation, practice operations",
+        "Part three, limits and method: what stays with you (the red zone), when the client arrives with an AI of their own, a thirty-minute protocol for evaluating any tool",
+        "Part four: a prompt library for clinical work",
+        "Appendices: consent language, a snapshot of tools as of September 2026, the decision grid, a short glossary"
+      ],
+      "price": {
+        "amount": 16.29,
+        "currency": "USD"
+      },
+      "salePrice": 11.4,
+      "etsyUrl": "https://www.etsy.com/listing/4582411717",
+      "featured": true
+    },
+    {
+      "id": "4566850963",
+      "slug": "the-intelligence-that-feels",
+      "title": "The Intelligence That Feels",
+      "subtitle": "A psychodynamic reading of logical and emotional intelligence, in the therapist and in the machine",
+      "line": "ai",
+      "kind": "Clinical compendium",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 34,
+      "summary": "On being affected, and on what changes when a client compares us with a machine.",
+      "description": "This compendium is not about whether a machine can feel. It asks what emotional intelligence is for in the consulting room, what it means that a system can now reproduce its surface without its origin, and what happens to us when the comparison enters the room as an atmosphere rather than a statement. There are no protocols here, only distinctions, clinical detail and a working grid for observation.",
+      "abstract": "When patients bring the output of a language model into the room, a comparison enters with it, in which the machine is cast as the logical one and the therapist as the one who feels. This compendium argues that the formulation is false in both directions and examines what emotional intelligence is for in clinical work. It distinguishes the capacity to be affected from the capacity to process, traces the developmental origins of the clinician's emotional intelligence, and asks what it means that a system can reproduce its surface without its history. It then describes how this appears in session, including therapies that become calmer without becoming deeper, offers a differential reading of five configurations that look alike, and addresses the clinician's own use of these tools in notes and formulation. It closes with composite vignettes, common errors and an observation grid.",
+      "whoFor": "Therapists who have felt compared with a chatbot, or have noticed sessions becoming calmer without becoming deeper, and supervisors who want a vocabulary for talking about it.",
+      "inside": [
+        "Foreword",
+        "Opening premise: why this theme, and why now",
+        "The debate as it is usually conducted, and why it is badly posed",
+        "A working set of distinctions",
+        "The psychic function at stake: what being affected does that processing does not",
+        "Developmental origins, and what it means that the machine's version has none",
+        "The use as an adaptive solution before it is a problem",
+        "The clinical picture in session",
+        "Differential reading: five configurations that look alike",
+        "The seduction of coherence, and why it is not a defect awaiting a fix",
+        "Transference and countertransference when the comparison is in the room",
+        "Adaptations of setting and technique",
+        "The clinician's own use: notes, formulation and the frame",
+        "Clinical vignettes and common errors",
+        "Operational appendix: an observation grid"
+      ],
+      "price": {
+        "amount": 19.8,
+        "currency": "USD"
+      },
+      "salePrice": 13.86,
+      "etsyUrl": "https://www.etsy.com/listing/4566850963"
+    },
+    {
+      "id": "4567617810",
+      "slug": "bias-in-the-room-bias-in-the-model",
+      "title": "Bias in the Room, Bias in the Model",
+      "subtitle": "Cognitive bias, AI bias, and how to tell them apart in clinical work",
+      "line": "ai",
+      "kind": "Short compendium",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 10,
+      "summary": "How to keep a language model from simply agreeing with the hypothesis you already had.",
+      "description": "When we consult a language model about a case we are not consulting a neutral instrument, and the question shifts from whether the tool is accurate to whose voice is actually in the room. This short compendium sets the clinician's own biases beside the model's, shows how the two meet in the exchange, and offers prompts that ask the model to argue against the working hypothesis rather than for it. It is an argument, not advice.",
+      "abstract": "Consulting a language model about a case is not consulting a neutral instrument, since the model returns a compressed statistical portrait of how people, clinicians included, have written about minds. This short compendium places the clinician's own cognitive biases (confirmation, availability, halo effect and anchoring) beside the biases of the model, and shows how the two meet in the exchange, where the model tends to take the shape of the hypothesis the clinician already holds. It then describes how the same tool can be used against that pull, through prompts that ask the model to argue against the working hypothesis and to generate differentials, including ones that do not involve pathology. An appendix provides a working bias check for testing how a specific model behaves in practice. The text presents an argument rather than advice.",
+      "whoFor": "Clinicians who already consult a language model about cases, formulations or differentials, and want that consultation to widen their thinking instead of confirming it.",
+      "inside": [
+        "A short word on who is writing, and why it matters",
+        "The clinician's biases under uncertainty: confirmation, availability, halo, anchoring",
+        "How model bias enters the exchange and takes the shape of your own confirmation",
+        "Using the tool against the bias: prompts that argue against the working hypothesis",
+        "Appendix: a working bias check for your preferred model"
+      ],
+      "price": {
+        "amount": 17.58,
+        "currency": "USD"
+      },
+      "salePrice": 12.3,
+      "etsyUrl": "https://www.etsy.com/listing/4567617810"
+    },
+    {
+      "id": "4549656292",
+      "slug": "ai-observation-grid",
+      "title": "AI in the Consulting Room",
+      "shortTitle": "AI Observation Grid",
+      "subtitle": "An eight-part observation grid for clinicians whose patients use AI",
+      "line": "ai",
+      "kind": "Observation grid",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 11,
+      "summary": "Eight sections for following what a client's AI use is doing, over months rather than in one session.",
+      "description": "This is a discipline for organizing your own attention rather than an instrument, so it has no validation, no scoring and no diagnostic status, and it is never something to hand to a patient. Eight sections follow the practice from how it began to its function, its relation to the frame and its effect on the material and on us, and they close with questions about our own use of the same tools. A section that stays empty for months is information too.",
+      "abstract": "Clinicians in longer-term work increasingly need somewhere to keep track of how a patient uses AI tools between sessions. This instrument offers an eight-part observation grid for that purpose: how the practice was established, the function it serves, its relation to the frame, its effect on the material brought to session, the relational configuration with the tool, risk, a countertransference log and the clinician's own use of the same tools. It is explicitly not a validated instrument and has no scoring or diagnostic status; it is a discipline for organizing the clinician's attention across months and is not meant to be shown to or administered to a patient. The grid also treats absence as data, since a section that stays empty over time indicates either that a question does not apply or that it has been avoided.",
+      "whoFor": "Clinicians in longer-term work with clients who use chatbots or companion apps, who want a structured place to keep observations across sessions.",
+      "inside": [
+        "How to use this",
+        "A. Establishing the practice",
+        "B. Function",
+        "C. Relation to the frame",
+        "D. Effect on the material",
+        "E. Relational configuration",
+        "F. Risk",
+        "G. Countertransference log",
+        "H. My own practice",
+        "One last thing"
+      ],
+      "price": {
+        "amount": 17.46,
+        "currency": "USD"
+      },
+      "salePrice": 12.22,
+      "etsyUrl": "https://www.etsy.com/listing/4549656292"
+    },
+    {
+      "id": "4558887971",
+      "slug": "before-you-call-it-resistance",
+      "title": "Before You Call It Resistance",
+      "subtitle": "A one-page field note for clinicians",
+      "line": "psychodynamic",
+      "kind": "Field note",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 1,
+      "summary": "Three questions to sit with before the word gets written down.",
+      "description": "Resistance is rarely the wrong word, but it tends to arrive too early, naming the phenomenon and closing the question in the same breath. This one-page note holds three questions, about the alliance, about what the behavior is doing for the patient and about whose timeline is being interrupted, to read after a session that left you reaching for the word. Sometimes it will still fit, and the point was only to make sure it was the truest word available.",
+      "abstract": "The word resistance tends to arrive early in clinical thinking, naming a phenomenon and closing the question about it at the same time. This one-page field note proposes a pause before the word is written in a session note. It offers three questions: what would have to be true about the alliance for the behavior to be the safest available move, what the behavior is doing for the patient that insight has not yet done, and whose timeline the behavior is interrupting. The note is designed to be read after a session that left the clinician reaching for the term, and its aim is not to argue against the concept but to make sure it remains the most accurate description available once the alternatives have been considered.",
+      "whoFor": "Any clinician, of any orientation, who has written \"resistant\" in a session note and wondered afterwards whether it was a finding or a feeling.",
+      "inside": [
+        "Three questions to sit with before naming resistance",
+        "How to use it: after the session, before the note"
+      ],
+      "price": {
+        "amount": 2.23,
+        "currency": "USD"
+      },
+      "salePrice": 1.56,
+      "etsyUrl": "https://www.etsy.com/listing/4558887971"
+    },
+    {
+      "id": "4549577485",
+      "slug": "adult-adhd-a-psychodynamic-view",
+      "title": "Adult ADHD: A Psychodynamic View",
+      "subtitle": "A clinical compendium for psychotherapists",
+      "line": "psychodynamic",
+      "kind": "Clinical compendium",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 19,
+      "summary": "Adult ADHD read as relational experience, without denying the neurobiology.",
+      "description": "The literature on adult ADHD is almost entirely neurobiological and cognitive-behavioral, and this compendium does not contest it. It works in the space that evidence leaves uncovered, where a constitutional vulnerability of attention is lived, defended and given meaning within a history, which is where our work begins. The tone is that of one colleague writing to others, with a reading grid for the assessment interview in place of a protocol.",
+      "abstract": "The literature on adult ADHD is predominantly neurobiological and cognitive-behavioral, and this compendium does not contest it. It addresses the space that literature leaves uncovered, reading adult ADHD as subjective and relational experience in which a constitutional vulnerability of attention is lived, defended and given meaning within a personal history. The position is integrative rather than oppositional. The text examines the psychic function of attention, its developmental origins in mirroring, regulation and containment, the clinical picture as it appears in session, and differential diagnosis from a psychodynamic standpoint. It gives particular weight to transference and countertransference, to adapting setting and technique without abandoning the frame, to coping beyond practical strategies and to the meaning of medication in the therapy. It closes with composite vignettes, common errors, an essential bibliography and a reading grid for the assessment interview.",
+      "whoFor": "Psychodynamically or analytically oriented therapists working with adults who have, or suspect they have, an ADHD diagnosis.",
+      "inside": [
+        "Foreword, and who this is for",
+        "The debate: neurobiological category or reading of the symptom?",
+        "The psychic function of attention and its collapse",
+        "Developmental origins: mirroring, regulation, containment",
+        "The clinical picture re-read in session",
+        "Differential diagnosis in a psychodynamic key",
+        "Transference and countertransference with the ADHD patient",
+        "Adapting setting and technique without betraying the frame",
+        "Coping in a psychodynamic key, beyond the \"tricks\"",
+        "Medication and psychodynamic work",
+        "Clinical vignettes, common errors and false myths",
+        "Essential bibliography",
+        "Appendix: a psychodynamic reading grid for the assessment interview"
+      ],
+      "price": {
+        "amount": 12.89,
+        "currency": "USD"
+      },
+      "salePrice": 9.02,
+      "etsyUrl": "https://www.etsy.com/listing/4549577485"
+    },
+    {
+      "id": "4549576279",
+      "slug": "adhd-and-relational-trauma",
+      "title": "ADHD and Relational Trauma",
+      "subtitle": "A psychodynamic reading",
+      "line": "psychodynamic",
+      "kind": "Clinical compendium",
+      "formats": [
+        "PDF",
+        "EPUB"
+      ],
+      "pages": 49,
+      "summary": "What a pattern of attention does for this person now, in their relationships and in the room.",
+      "description": "This compendium does not dispute the diagnosis of ADHD, nor try to replace it with trauma. It asks what happens in the consulting room when the map we have been handed does not cover the whole territory of the person in front of us, and it moves the clinical question from what is failing to what this pattern of attention is doing, for this person, here. Bion, Winnicott and Khan supply the frame, and three composite vignettes show it at work.",
+      "abstract": "Research on adult ADHD has recently moved from a deficit-based description toward strengths-based readings, while largely remaining within a neurobiological frame in which personal history appears, if at all, as a modulating variable. This compendium neither disputes the diagnosis nor replaces it with trauma. It shifts the clinical question from what is failing in attention to what a given pattern of attention is doing for the person, and what it was trained to do. Drawing on Bion, Winnicott and Khan's notion of cumulative trauma, it describes attention as a psychic function, hyperactivation as an adaptive solution and the clinical picture across a year of weekly work. It discusses psychodynamic differential diagnosis, identification with the diagnosis, specific transference configurations, adaptations of technique and the place of medication, with composite vignettes and an observation grid.",
+      "whoFor": "Therapists working with adults whose attention difficulties sit alongside an unpredictable early environment, and who want to hold both readings without choosing between them.",
+      "inside": [
+        "Opening premise: why this theme, and why now",
+        "Neurobiology or relational history: a debate that is badly posed",
+        "What we mean by relational trauma, and what we do not",
+        "Attention as a psychic function: Bion, and what attending actually costs",
+        "Developmental origins: holding, disorganization, mentalization",
+        "Hyperactivation as an adaptive solution",
+        "The clinical picture in session",
+        "Psychodynamic differential diagnosis",
+        "\"I am ADHD\": identification with the diagnosis, and what it costs",
+        "Transference and countertransference: the specific configurations",
+        "Adaptations of setting and technique",
+        "Medication and the therapeutic work",
+        "Clinical vignettes and common errors",
+        "Operational appendix: an observation grid"
+      ],
+      "price": {
+        "amount": 17.58,
+        "currency": "USD"
+      },
+      "salePrice": 12.3,
+      "etsyUrl": "https://www.etsy.com/listing/4549576279"
+    },
+    {
+      "id": "4593981153",
+      "slug": "attachment-in-the-room",
+      "title": "Attachment in the Room",
+      "subtitle": "A clinical compendium on adult attachment, with 10 client worksheets",
+      "line": "psychodynamic",
+      "kind": "Compendium + worksheets",
+      "formats": [
+        "PDF",
+        "EPUB"
+      ],
+      "pages": 46,
+      "pagesNote": "36-page compendium and 10 worksheets",
+      "summary": "A compendium on adult attachment, with ten worksheets for clients and couples.",
+      "description": "Attachment is written here as a set of strategies to recognize in the room rather than a set of labels to assign. The compendium follows it from the story a patient tells to the patterns of the session and to our own attachment, and then into the work itself, from building a secure base to ruptures, breaks, endings and couples. Ten worksheets, written for use within an ongoing therapeutic relationship, carry the same thinking to the client's side of the room.",
+      "abstract": "This working compendium brings attachment theory back into the consulting room for clinicians who already know its basics. It treats attachment as a set of strategies, things a person does for good reasons in a particular kind of relationship, rather than as types a person is. Part I offers a compact map of adult attachment, from the Strange Situation to the adult mind. Part II addresses recognition: how attachment patterns sound in narrative, appear in the session and affect the therapist. Part III addresses the work itself, including building a secure base and working with deactivating, hyperactivating and disorganized patterns, ruptures and repair, breaks and endings, couples and online therapy. Part IV collects an observation grid, a formulation template and a guide to measures. Ten printable worksheets for clients and couples accompany the text, designed for use within an ongoing therapeutic relationship.",
+      "whoFor": "Individual and couples therapists who use attachment theory and want it to change what they notice in session, plus trainees under supervision.",
+      "inside": [
+        "Part I, a map of adult attachment: why it still matters, from the Strange Situation to the adult mind, strategies rather than labels",
+        "Part II, recognizing attachment in the room: the narrative, patterns in the session, the therapist's attachment",
+        "Part III, working with attachment: the secure base, deactivating, hyperactivating and disorganized patterns, ruptures and repair, breaks and endings, couples, online therapy, three clinical vignettes",
+        "Part IV, tools: measures and what they are for, a clinical observation grid, attachment-informed formulation",
+        "Ten client worksheets, from \"My closeness thermometer\" and \"Our cycle\" for couples to \"A repair conversation\" and a secure moments log"
+      ],
+      "price": {
+        "amount": 17.46,
+        "currency": "USD"
+      },
+      "salePrice": 12.22,
+      "etsyUrl": "https://www.etsy.com/listing/4593981153",
+      "featured": true
+    },
+    {
+      "id": "4549954750",
+      "slug": "the-distance-map",
+      "title": "The Distance Map",
+      "subtitle": "An original relational mapping instrument for the consulting room",
+      "line": "psychodynamic",
+      "kind": "Instrument",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 10,
+      "summary": "Three maps of the people in a client's life: now, five years ago, and as they would want it.",
+      "description": "Asking a patient who matters to them produces a list, while asking them to place people at a distance produces a picture they then have to explain to themselves. The Distance Map asks for that picture three times (as it is, as it was five years ago, as they would want it) and the clinical material lives in the gaps between the three. A page of clinician notes tracks the order of placement, the hesitations, and where you appear on the map, if you appear at all.",
+      "abstract": "Asking patients who matters to them tends to produce a list, whereas asking them to place people at a distance produces an image they then have to explain. The Distance Map is an original relational mapping instrument built on that observation. The patient places the people in their life around themselves three times, as things are now, as they were five years ago and as the patient would want them to be. Clinical material is drawn mainly from the differences between the three maps: who moved, what would have to change for the third map to become the first and who is missing from the page. A page of clinician notes records order of placement, hesitations, corrections and whether the therapist appears on the map. The instrument has no scoring and is intended as a structured prompt for exploration within the session.",
+      "whoFor": "Therapists working relationally with adults, especially around attachment, family of origin and the slow drift of important relationships.",
+      "inside": [
+        "Before you start",
+        "Map 1: as it is now",
+        "Map 2: five years ago",
+        "Map 3: if it were up to you",
+        "What moved, the gap between two and three, who is missing",
+        "Clinician notes",
+        "One last thing"
+      ],
+      "price": {
+        "amount": 17.46,
+        "currency": "USD"
+      },
+      "salePrice": 12.22,
+      "etsyUrl": "https://www.etsy.com/listing/4549954750"
+    },
+    {
+      "id": "4549942109",
+      "slug": "the-return-after-the-break",
+      "title": "The Return After the Break",
+      "subtitle": "Reconnection worksheets for the first sessions back",
+      "line": "tools",
+      "kind": "Worksheets",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 11,
+      "summary": "For the first sessions after a long break, which are closer to a reunion than a resumption.",
+      "description": "Most practices treat the first session after a long break as a resumption, when it is closer to a reunion and carries whatever the separation stirred up. Five sheets help the patient look at the gap and at what they did with what they would have brought here, and three ask the same of the clinician. A patient who says the break made no difference is making a statement about the therapy, and it deserves to be heard as one.",
+      "abstract": "The first session after a long break is often treated as a resumption, although clinically it is closer to a reunion that carries whatever the separation stirred up. These worksheets support the first sessions back. Five client sheets explore the felt length of the gap, what happened to material the patient would have brought to session, the difference between the beginning and the end of the break, what was noticed about not attending and what the patient expected on returning. Three clinician sheets ask the same questions of the therapist, covering their own break, changes in the field and the subjects quietly not returned to. The worksheets are intended for adult clients in ongoing therapy and treat the claim that the break made no difference as a statement about the therapy worth exploring.",
+      "whoFor": "Therapists coming back from summer, holidays or leave, with adult clients in ongoing work.",
+      "inside": [
+        "Before you start",
+        "The shape of the gap",
+        "What you did with what you would have brought here",
+        "The first week and the last",
+        "What you noticed about not coming",
+        "Coming back",
+        "For the clinician: my own break, what changed in the field, what I have not asked"
+      ],
+      "price": {
+        "amount": 17.46,
+        "currency": "USD"
+      },
+      "salePrice": 12.22,
+      "etsyUrl": "https://www.etsy.com/listing/4549942109"
+    },
+    {
+      "id": "4549942481",
+      "slug": "the-week-in-four-lines",
+      "title": "The Week in Four Lines",
+      "subtitle": "A between-session tracker: four tracks, seven days, no scores",
+      "line": "tools",
+      "kind": "Tracker",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 10,
+      "summary": "A between-session tracker that asks for four lines instead of numbers.",
+      "description": "Most between-session tracking fails because it asks for numbers, the patient supplies them dutifully, and what comes back is a table nobody learns anything from. This one asks for four marks a day (sleep, mood, contact with others and the thing being avoided) and produces a shape, so that what becomes visible is less that the mood dropped than what it dropped after. A patient who fills four perfect weeks and one who stops after nine days are both telling you something.",
+      "abstract": "Between-session tracking often fails because it asks for numbers that return as tables from which little is learned. This original tracker asks the patient for four marks a day, for sleep, mood, contact with others and the thing being avoided, joined into lines over seven days for four weeks. When the lines are drawn together, what becomes visible is less that mood dropped than what it dropped after. Two follow-up pages ask where the lines move together and where they move apart, and a page of clinician notes addresses adherence and what it reveals. The tracker has no scores, norms or cut-offs and must not be presented to patients as a test. Both complete and abandoned trackers are treated as clinically informative.",
+      "whoFor": "Clinicians who want between-session material that opens a conversation in the next session, rather than a mood score to file.",
+      "inside": [
+        "Before you start",
+        "Four weekly charts: sleep, mood, contact with others, the thing you avoid",
+        "Where the lines move together",
+        "Where they move apart",
+        "Clinician notes",
+        "One last thing"
+      ],
+      "price": {
+        "amount": 16.29,
+        "currency": "USD"
+      },
+      "salePrice": 11.4,
+      "etsyUrl": "https://www.etsy.com/listing/4549942481"
+    },
+    {
+      "id": "4549953970",
+      "slug": "big-feelings-small-body",
+      "title": "Big Feelings, Small Body",
+      "subtitle": "Emotion regulation worksheets for children aged 6 to 8",
+      "line": "tools",
+      "kind": "Worksheets",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 11,
+      "summary": "Emotion regulation sheets that start from the body, for children aged 6 to 8.",
+      "description": "A six-year-old has no word for most of what happens inside them, but they do have a body that goes fast or goes still, and a set of adults who react to it. These sheets start from that body, through drawing, speed and size, and they ask who noticed as carefully as they ask what was felt. The sheet a child refuses is worth as much as the ones they complete, and sometimes more.",
+      "abstract": "Children aged six to eight rarely have words for most of what happens in them, but they do have bodies that speed up or go still and adults who respond. These emotion regulation worksheets start from the body rather than from vocabulary. Seven sheets ask where a feeling lives, how fast it is going, what started it, who noticed, how big it is compared with the child, what helps and what only seems to, and what remains afterwards. Drawing is offered throughout as an alternative to writing. A final page for the clinician records what the child reached for first, what they avoided and what happened in the relationship while they worked. The guidance treats refused sheets as being as informative as completed ones.",
+      "whoFor": "Child therapists and play therapists working with children aged 6 to 8, and the clinicians who meet their parents.",
+      "inside": [
+        "Before you start",
+        "Where it lives",
+        "How fast is it going?",
+        "What made it start?",
+        "Who noticed?",
+        "The size of it",
+        "What helps, and what only looks like it helps",
+        "Afterwards",
+        "For the grown-up in the room"
+      ],
+      "price": {
+        "amount": 15.12,
+        "currency": "USD"
+      },
+      "salePrice": 10.58,
+      "etsyUrl": "https://www.etsy.com/listing/4549953970"
+    },
+    {
+      "id": "4549954076",
+      "slug": "the-first-ten-minutes",
+      "title": "The First Ten Minutes",
+      "subtitle": "Session openers and check-ins for adolescent therapy, ages 13 to 18",
+      "line": "tools",
+      "kind": "Session openers",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 11,
+      "summary": "Seven openers for adolescents that take the place of \"how was your week?\"",
+      "description": "The opening of a session with an adolescent is its most diagnostic stretch, and it is usually spent on a question that invites a shrug. Seven openers ask for smaller and truer things, such as the smallest event they actually remember or who got the good version of them this week. When a teenager chooses the same opener every week, that is a structure worth asking about rather than a preference.",
+      "abstract": "The opening minutes of a session with an adolescent are often its most diagnostic stretch, yet they are frequently spent on a question that invites a shrug. This set of session openers for ages thirteen to eighteen replaces that question with seven smaller and more specific prompts, such as the smallest event the young person actually remembers, the volume of the week, something thought but not said, a room or person avoided and who received the best version of them. A final opener names the topic they would rather not be asked about without requiring an answer. Clinician notes track which opener was chosen or refused and what changed afterwards. The guidance observes that choosing the same opener every week is a structure worth exploring rather than a preference.",
+      "whoFor": "Therapists and school counselors working with adolescents aged 13 to 18.",
+      "inside": [
+        "Before you start",
+        "The smallest true thing",
+        "Volume check",
+        "What you did not say",
+        "The room you avoided",
+        "Who got the good version",
+        "Two minutes ago",
+        "The thing you would rather I didn't ask about",
+        "Clinician notes"
+      ],
+      "price": {
+        "amount": 16.29,
+        "currency": "USD"
+      },
+      "salePrice": 11.4,
+      "etsyUrl": "https://www.etsy.com/listing/4549954076"
+    },
+    {
+      "id": "4549954248",
+      "slug": "back-to-school-back-to-the-body",
+      "title": "Back to School, Back to the Body",
+      "subtitle": "September anxiety: psychoeducation for children aged 9 to 12 and their parents",
+      "line": "tools",
+      "kind": "Psychoeducation",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 11,
+      "summary": "Back-to-school anxiety for children aged 9 to 12, with three sheets for their parents.",
+      "description": "September anxiety is usually described to parents as a phase to manage and to children as a feeling to reduce, and both descriptions leave out what the anxiety is guarding. Five sheets help the child find it in the body and test its predictions against last time, while three ask the parent to describe instead of correct. The aim is not a calm child but a child who has been accurately described by an adult who did not rush to fix them.",
+      "abstract": "September anxiety is usually framed for parents as a phase to manage and for children as a feeling to reduce, framings that leave out what the anxiety is protecting. This psychoeducation pack for children aged nine to twelve and their parents works from that premise. Five child sheets explore how the body responds the night before, the list of predictions the mind produces, what the worry might be guarding, the imagined first ten minutes and what actually happened on a previous first day. Three parent sheets ask the adult to describe rather than correct, to notice their own response to the child's anxiety and to record what genuinely helped. The stated aim is not a calm child but a child who has been accurately described by an adult who did not immediately try to fix them.",
+      "whoFor": "Child therapists and school counselors, and clinicians who work with parents around the start of the school year.",
+      "inside": [
+        "Before you start",
+        "The night before",
+        "The list your head makes",
+        "What it is trying to protect you from",
+        "The first ten minutes",
+        "What actually happened last time",
+        "For the parent: describing instead of correcting, your own September, what helped, honestly"
+      ],
+      "price": {
+        "amount": 17.46,
+        "currency": "USD"
+      },
+      "salePrice": 12.22,
+      "etsyUrl": "https://www.etsy.com/listing/4549954248"
+    },
+    {
+      "id": "4549954440",
+      "slug": "what-the-symptom-is-doing-for-you",
+      "title": "What the Symptom Is Doing For You",
+      "subtitle": "A psychodynamic psychoeducation pack for adult clients",
+      "line": "tools",
+      "kind": "Psychoeducation",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 11,
+      "summary": "Psychoeducation that explains what a symptom is for, not only what it is.",
+      "description": "Most psychoeducation explains what a symptom is and very little of it explains what a symptom is for, which is not a neutral omission. Seven sheets lead an adult client from what the pattern costs to what it spares them, when it began and whose state they were managing when they learned it. The clinician notes name the known risk, a page completed too elegantly by a patient who then uses the function as a reason to keep it.",
+      "abstract": "Most psychoeducation available to patients explains what a symptom is, and little of it explains what a symptom is for. This pack offers adult clients a psychodynamic alternative. Seven sheets lead from what the pattern costs to what it spares the person, when it began, whose emotional state they were managing when they learned it, the conditions under which it intensifies or quietens, the version shown to others and what would have to be true for it to be no longer needed. Clinician notes track avoidance, the material arriving in the following session and the pattern's role in the transference. The guidance also names a known risk, namely that a patient may use the idea of a symptom's function as a reason to keep it.",
+      "whoFor": "Therapists of any orientation working with adults on long-standing patterns, who want psychoeducation that opens a question rather than closing one.",
+      "inside": [
+        "Before you start",
+        "What it costs you",
+        "What it spares you",
+        "When it began",
+        "Who it was for",
+        "When it works and when it does not",
+        "The version you show",
+        "What would have to be true",
+        "Clinician notes"
+      ],
+      "price": {
+        "amount": 16.29,
+        "currency": "USD"
+      },
+      "salePrice": 11.4,
+      "etsyUrl": "https://www.etsy.com/listing/4549954440"
+    },
+    {
+      "id": "4549954972",
+      "slug": "where-you-are-today",
+      "title": "Where You Are Today",
+      "subtitle": "An original visual check-in for the start of a session",
+      "line": "tools",
+      "kind": "Check-in",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 9,
+      "summary": "A check-in on four lines that replaces the number out of ten.",
+      "description": "A number out of ten is the least informative thing a person can say about themselves, since it compresses a whole week into a digit. This check-in asks for a mark on four lines (in the body, in the head, with other people, and about coming here) and then for the one that was hardest to mark. The last line is the one clinicians are tempted to remove, and it is the one that earns the sheet its place.",
+      "abstract": "A number out of ten is among the least informative things a person can say about themselves, since it compresses a week into a single digit. This visual check-in for the start of a session replaces the rating with marks on four lines: in the body, in the head, with other people and about coming to therapy. The patient then indicates which line was hardest to mark. Clinician notes record marks that contradict the verbal report, lines that were skipped and change since the previous sheet. The final line, about coming to therapy, is retained deliberately, because it gives patients a way to say on paper that they are unsure the work is helping. The tool has no norms or scoring and is designed for repeated use across sessions.",
+      "whoFor": "Clinicians who open sessions with a check-in and want one that brings material into the room instead of a score.",
+      "inside": [
+        "Before you start",
+        "In the body",
+        "In the head",
+        "With other people",
+        "About coming here",
+        "The one that was hardest to mark",
+        "Clinician notes"
+      ],
+      "price": {
+        "amount": 9.26,
+        "currency": "USD"
+      },
+      "salePrice": 6.48,
+      "etsyUrl": "https://www.etsy.com/listing/4549954972"
+    },
+    {
+      "id": "4551577806",
+      "slug": "holidays-family-and-boundaries",
+      "title": "Holidays, Family and Boundaries",
+      "subtitle": "Twenty worksheets for the weeks around the table",
+      "line": "tools",
+      "kind": "Seasonal workbook",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 28,
+      "summary": "Twenty worksheets in four movements, from November's anticipation to January's account.",
+      "description": "The holidays are hard less because there is too much to do than because they return a person to a room where a role was assigned long ago and everyone still knows the lines. The twenty sheets follow that arc in four movements (before, the role, the room, after) so that one patient can use them across six or eight weeks. There are no coping tips here, and the sheets left blank are a map of what could not yet be looked at.",
+      "abstract": "Holiday gatherings tend to be difficult less because of the workload than because they return a person to a family role assigned long ago. This seasonal workbook for adult clients follows that premise through twenty worksheets in four movements: before, the role, in the room and after. The sheets explore anticipation and rehearsal, the function each person holds in the family, the age the person feels by the second day, recurring alliances and triggering phrases, what is never discussed, the account given afterwards and the distance between intentions and outcomes. The guidance recommends giving the movements in sequence over six to eight weeks, from late November to the first session of January. It includes cautions for patients in acute family conflict or with a history of abuse, and for those whose family is absent.",
+      "whoFor": "Therapists with adult clients heading into Thanksgiving, the December holidays or any family gathering, with notes on timing and on when to hold sheets back.",
+      "inside": [
+        "Before you start: why this kit, how to give it, what to watch for",
+        "I. Before: five sheets for the weeks when it is still only coming",
+        "II. The role: five sheets on what the room assigns, and how long ago",
+        "III. In the room: five sheets for the hours themselves",
+        "IV. After: five sheets for what is left when everyone has gone home",
+        "One last thing"
+      ],
+      "price": {
+        "amount": 23.32,
+        "currency": "USD"
+      },
+      "salePrice": 16.32,
+      "etsyUrl": "https://www.etsy.com/listing/4551577806"
+    }
+  ],
+  "bundles": [
+    {
+      "id": "4595310008",
+      "slug": "ai-in-therapy-complete-kit",
+      "title": "AI in Therapy Complete Kit",
+      "summary": "The five titles on AI in the consulting room, from the clinical frame to the practical manual and the observation grid.",
+      "description": "For therapists whose clients already talk to AI. The kit holds the whole line, so the clinical argument, the working manual for your own tools and the grid for following a client's use over months arrive together.",
+      "line": "ai",
+      "includes": [
+        "4549583610",
+        "4582411717",
+        "4566850963",
+        "4567617810",
+        "4549656292"
+      ],
+      "pages": 155,
+      "formats": [
+        "PDF",
+        "EPUB"
+      ],
+      "price": {
+        "amount": 49.1,
+        "currency": "USD"
+      },
+      "salePrice": 34.37,
+      "etsyUrl": "https://www.etsy.com/listing/4595310008",
+      "images": {
+        "hero": "bundles/ai-in-therapy-complete-kit-hero",
+        "inside": "bundles/ai-in-therapy-complete-kit-inside"
+      }
+    },
+    {
+      "id": "4595316774",
+      "slug": "psychodynamic-practice-bundle",
+      "title": "Psychodynamic Practice Bundle",
+      "summary": "Attachment, adult ADHD, relational trauma, the Distance Map and the resistance field note in one download.",
+      "description": "The psychodynamic line in one place, for colleagues who want depth without a manual. It pairs the two ADHD compendia, so the shorter one can be read first, with the attachment compendium and its worksheets and the two instruments.",
+      "line": "psychodynamic",
+      "includes": [
+        "4593981153",
+        "4549576279",
+        "4549577485",
+        "4549954750",
+        "4558887971"
+      ],
+      "pages": 125,
+      "formats": [
+        "PDF",
+        "EPUB"
+      ],
+      "price": {
+        "amount": 37.38,
+        "currency": "USD"
+      },
+      "salePrice": 26.16,
+      "etsyUrl": "https://www.etsy.com/listing/4595316774",
+      "images": {
+        "hero": "bundles/psychodynamic-practice-bundle-hero",
+        "inside": "bundles/psychodynamic-practice-bundle-inside"
+      }
+    },
+    {
+      "id": "4595319872",
+      "slug": "the-consulting-room-complete-library",
+      "title": "The Consulting Room Complete Library",
+      "summary": "All eighteen titles in the shop in one download, with a reading guide.",
+      "description": "Everything in the shop, across the three lines, delivered as one ZIP with a reading guide. It is the version for colleagues who expect to use the session tools and the compendia side by side, and would rather have the whole shelf than choose title by title.",
+      "line": "all",
+      "includes": [
+        "4549583610",
+        "4582411717",
+        "4566850963",
+        "4549656292",
+        "4567617810",
+        "4593981153",
+        "4549576279",
+        "4549577485",
+        "4549954750",
+        "4558887971",
+        "4551577806",
+        "4549942109",
+        "4549954972",
+        "4549942481",
+        "4549954440",
+        "4549954076",
+        "4549953970",
+        "4549954248"
+      ],
+      "pages": 382,
+      "formats": [
+        "PDF",
+        "EPUB"
+      ],
+      "delivery": "One ZIP download with a reading guide",
+      "price": {
+        "amount": 57.41,
+        "currency": "USD"
+      },
+      "salePrice": 40.19,
+      "etsyUrl": "https://www.etsy.com/listing/4595319872",
+      "images": {
+        "hero": "bundles/the-consulting-room-complete-library-hero",
+        "inside": "bundles/the-consulting-room-complete-library-inside"
+      },
+      "best": true
+    }
+  ]
+}

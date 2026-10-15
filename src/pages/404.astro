@@ -1,0 +1,22 @@
+---
+import { u } from '../lib/url';
+import Base from '../layouts/Base.astro';
+---
+<Base title="Page not found" noindex>
+  <section class="wrap nf">
+    <svg viewBox="0 0 220 140" width="180" aria-hidden="true"><circle cx="85" cy="70" r="56" /><circle cx="150" cy="70" r="56" /></svg>
+    <h1 class="page-title">This page is not here</h1>
+    <p class="lead muted">The address may have changed, or the guide may have moved. Every title is listed in the catalogue.</p>
+    <div class="actions">
+      <a class="tcr-btn tcr-btn--primary" href={u('/guides/')}>Browse the guides</a>
+      <a class="tcr-btn tcr-btn--secondary" href={u('/')}>Go to the home page</a>
+    </div>
+  </section>
+</Base>
+<style>
+  .nf { display: grid; gap: var(--space-5); justify-items: start; padding-block: var(--space-8); max-width: 720px; }
+  svg circle { fill: none; stroke-width: 1.5; }
+  svg circle:first-child { stroke: var(--sage); }
+  svg circle:last-child { stroke: var(--ink); opacity: 0.4; }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+</style>

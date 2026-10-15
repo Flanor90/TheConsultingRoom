@@ -1,0 +1,15 @@
+---
+// Titolo diviso in parole per l'animazione; il testo resta un'unica frase per i lettori di schermo.
+interface Props { text: string; as?: 'h1' | 'h2' | 'h3' | 'p'; class?: string; id?: string; now?: boolean }
+const { text, as: Tag = 'h2', class: cls = '', id, now = false } = Astro.props;
+const words = text.split(' ');
+---
+<Tag class={`split ${cls}`} id={id} data-split data-split-now={now ? '' : undefined} aria-label={text}>
+  {words.map((w) => <span class="w" aria-hidden="true"><span class="w__i">{w}</span></span>)}
+</Tag>
+<style>
+  .split { perspective: 900px; }
+  .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+  .w:not(:last-child) { margin-right: 0.22em; }
+  .w__i { display: inline-block; transform-origin: 50% 100%; }
+</style>

@@ -1,0 +1,13 @@
+---
+import { checkedOnLabel, promotion, promoActiveAtBuild, promoEndsLabel } from '../lib/catalog';
+import { config } from '../config';
+---
+{config.showPrices && (
+  <p class="price-note">
+    {promoActiveAtBuild && promotion && <span class="promo-on">Sale prices belong to the shop's {promotion.label.toLowerCase()}, {promotion.percent}% off until {promoEndsLabel}. </span>}
+    Prices are in US dollars as shown on Etsy on {checkedOnLabel}. Etsy shows the current price in your currency, and any tax, before you pay.
+  </p>
+)}
+<style>
+  .price-note { font-size: 13px; line-height: 1.5; color: inherit; opacity: 0.85; max-width: 70ch; }
+</style>

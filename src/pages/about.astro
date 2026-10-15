@@ -1,0 +1,32 @@
+---
+import { u } from '../lib/url';
+import Page from '../layouts/Page.astro';
+import Portrait from '../components/Portrait.astro';
+import { personSchema, breadcrumbSchema } from '../lib/schema';
+const site = Astro.site!;
+---
+<Page
+  title="About the author"
+  lead="A psychoanalytically oriented psychotherapist who writes for colleagues between sessions."
+  description="Alberto Del Bove is a psychologist and psychoanalytically oriented psychotherapist in private practice in Rome, and the author of The Consulting Room's clinical guides."
+  jsonLd={[personSchema(site), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }], site)]}
+>
+  <Portrait eager />
+  <p class="lead">I'm Alberto Del Bove, a psychologist and psychoanalytically oriented psychotherapist. I see adults online and in person in Itri, near Rome, and I work in Italian, English and Spanish.</p>
+
+  <h2>Training</h2>
+  <p>I trained at Sapienza University of Rome, with a bachelor's degree in Psychological Sciences and a master's degree in Clinical Psychology, and I have been a licensed psychologist since 2018, registered with the Ordine degli Psicologi del Lazio, the regional board that licenses psychologists in Italy. In 2022 I completed the four-year specialization in psychoanalytic psychotherapy at SPS in Rome, where I trained in Demand Analysis, an approach that is not satisfied with the symptom and asks what the request for help means within the history and the contexts of the person who brings it.</p>
+  <p>Alongside clinical practice I have worked on the organizational side, on the distress that comes from work and on the organizations that produce it. That double vantage point runs through what I write: suffering does not live in a vacuum, it lives inside relationships, contexts and cultures.</p>
+  <p>My license is Italian. The guides are educational material written for clinicians; they do not offer clinical services or advice in the US or anywhere else.</p>
+
+  <h2>Why I write these guides</h2>
+  <p>Over the years I have built up observation grids, worksheets and notes that I use in my own practice, each written to answer a question that came up in session rather than to fill a shelf. The Consulting Room is where I share them with colleagues: psychotherapists, psychologists and counselors who meet the same clinical difficulties every week.</p>
+  <p>The line on AI exists because patients began bringing it into the room before the literature had caught up. A person who spent last night talking to a chatbot arrives with material that has already been answered, and I wanted a careful, undramatic way to think about what that does to the work, and about what it does to us when we start using the same tools.</p>
+
+  <h2>How the guides are written</h2>
+  <p>Every compendium, grid and worksheet is written and reviewed by me. The clinical vignettes are composite and fictional, built from patterns rather than from patients. The tools are reflection and observation aids, with no scoring, norms or diagnostic status, and they are meant to support your judgment in the room, never to replace it.</p>
+  <p>The orientation is psychodynamic, but most of what the guides attend to (the frame, the relationship, what changes in the room) is shared by integrative, systemic, schema and ACT colleagues, and many of them use the material without translating it.</p>
+
+  <h2>Contact</h2>
+  <p>If you are unsure which guide fits the way you work, you can write to me through the <a href="https://www.etsy.com/shop/TheConsultingRoom" target="_blank" rel="noopener">Etsy shop</a>; I answer every message myself. Training institutes can find details on the <a href={u('/institutes/')}>page for institutes</a>.</p>
+</Page>

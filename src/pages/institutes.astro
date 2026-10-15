@@ -1,0 +1,35 @@
+---
+import { u } from '../lib/url';
+import Page from '../layouts/Page.astro';
+import { config } from '../config';
+import { bundles } from '../lib/catalog';
+const email = config.contactEmail;
+---
+<Page
+  title="For training institutes"
+  lead="Using the guides with trainees and in teaching."
+  description="Information for psychotherapy training institutes and teachers who want to use The Consulting Room's clinical guides with trainees: teaching use, multiple licenses and contact."
+>
+  <p class="lead">Several of the guides were written with training in mind: the AI line in particular gives trainees a clinical frame for something their supervisors did not meet in their own training.</p>
+
+  <h2>Teaching use</h2>
+  <p>The compendia work well as reading for a seminar or a supervision group, and the observation grids and worksheets as material to discuss cases around. Each guide states plainly what it is and what it is not, so trainees are not handed an instrument that pretends to a validation it does not have.</p>
+  <p>Titles that tend to suit teaching:</p>
+  <ul>
+    <li><a href={u('/guides/the-space-that-answers-back/')}>The Space That Answers Back</a>, on AI and the psychic function of listening</li>
+    <li><a href={u('/guides/instruments-not-oracles/')}>Instruments, Not Oracles</a>, on AI tools in clinical practice, consent and data</li>
+    <li><a href={u('/guides/attachment-in-the-room/')}>Attachment in the Room</a>, with its ten client worksheets</li>
+    <li><a href={u('/guides/before-you-call-it-resistance/')}>Before You Call It Resistance</a>, a one-page note for supervision groups</li>
+  </ul>
+
+  <h2>Multiple licenses</h2>
+  <p>A purchase on Etsy covers one therapist. For a cohort, a department or a library, I can arrange licenses for several users, and the {bundles.find((b) => b.best)?.title} is often the simplest starting point. Write to me with the number of people and how you plan to use the material, and I will reply with a proposal.</p>
+
+  <h2>Contact</h2>
+  {email ? (
+    <p>Email: <a href={`mailto:${email}`}>{email}</a></p>
+  ) : (
+    <p>Email: <span class="placeholder">[DA COMPLETARE: il tuo indirizzo email per gli istituti]</span></p>
+  )}
+  <p>You can also reach me through the <a href={config.etsyShop} target="_blank" rel="noopener">Etsy shop</a>.</p>
+</Page>

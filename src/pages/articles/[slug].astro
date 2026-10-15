@@ -1,0 +1,53 @@
+---
+import { u } from '../../lib/url';
+import Base from '../../layouts/Base.astro';
+import { articles } from '../../lib/articles';
+import { config } from '../../config';
+import { breadcrumbSchema } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return articles.map((a) => ({ params: { slug: a.slug }, props: { article: a } }));
+}
+const { article: a } = Astro.props as { article: (typeof articles)[number] };
+const site = Astro.site!;
+const { Content } = a;
+const date = new Date(a.date + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+const ld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: a.title,
+    description: a.description,
+    datePublished: a.date,
+    inLanguage: 'en',
+    author: { '@type': 'Person', name: config.author, url: new URL(u('/about/'), site).href },
+    mainEntityOfPage: new URL(u(`/articles/${a.slug}/`), site).href,
+  },
+  breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Articles', path: '/articles/' }, { name: a.title, path: `/articles/${a.slug}/` }], site),
+];
+---
+<Base title={a.title} description={a.description} type="article" jsonLd={ld}>
+  <article class="wrap article">
+    <header class="article__head">
+      <p class="small muted"><a href={u('/articles/')}>Articles</a>, <time datetime={a.date}>{date}</time></p>
+      <h1 class="page-title">{a.title}</h1>
+      <p class="lead muted">{a.description}</p>
+    </header>
+    <div class="prose article__body">
+      <Content />
+    </div>
+    <aside class="disclaimer small">
+      {a.audience === 'clinicians' ? (
+        <p>Written for clinicians as educational material. It is not clinical advice and does not replace supervision.</p>
+      ) : (
+        <p>This article is general information, not therapy or medical advice, and reading it does not create a professional relationship. If you are struggling, please speak to a licensed professional where you live. In the US, if you are in crisis, call or text 988 (Suicide &amp; Crisis Lifeline); in an emergency, call 911.</p>
+      )}
+    </aside>
+  </article>
+</Base>
+<style>
+  .article { display: grid; gap: var(--space-6); padding-block: var(--space-7); max-width: 820px; margin-inline: auto; }
+  .article__head { display: grid; gap: var(--space-4); }
+  .article__body { font-size: 18px; }
+  .disclaimer { padding: var(--space-4); background: var(--surface); border-radius: 14px; color: var(--ink-muted); max-width: var(--measure-text); }
+</style>

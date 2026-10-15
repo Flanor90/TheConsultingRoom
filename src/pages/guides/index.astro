@@ -1,0 +1,138 @@
+---
+import { u } from '../../lib/url';
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import PriceNote from '../../components/PriceNote.astro';
+import Split from '../../components/Split.astro';
+import { lines, sortedProducts, productsInLine, bundles } from '../../lib/catalog';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const site = Astro.site!;
+const library = bundles.find((b) => b.best);
+---
+<Base
+  title="The guides"
+  description="All clinical guides, compendia and session tools by Alberto Del Bove: AI in therapy, psychodynamic practice and session tools for psychotherapists. Instant PDF downloads via Etsy."
+  jsonLd={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides/' }], site)}
+>
+  <section class="wrap shop-head">
+    <Split as="h1" class="page-title" text="The guides" now />
+    <p class="lead muted">{sortedProducts.length} titles in three lines. Each opens on Etsy, where you buy it and download the file straight away.</p>
+  </section>
+
+  <section class="wrap shop" aria-label="Catalogue">
+    <div class="controls">
+      <div class="tcr-filter" role="group" aria-label="Filter by line">
+        <button class="tcr-chip" type="button" data-filter="all" aria-pressed="true">All<span class="tcr-chip__n">{sortedProducts.length}</span></button>
+        {lines.map((l) => (
+          <button class="tcr-chip" type="button" data-filter={l.id} aria-pressed="false">{l.short}<span class="tcr-chip__n">{productsInLine(l.id).length}</span></button>
+        ))}
+      </div>
+      <div class="search">
+        <label for="q" class="search__label">Search the guides</label>
+        <input class="tcr-input" id="q" type="search" placeholder="Try attachment, ADHD, adolescents" autocomplete="off" />
+      </div>
+    </div>
+    <p class="status small muted" id="status" aria-live="polite"></p>
+
+    <div class="grid" id="grid" data-stagger>
+      {sortedProducts.map((p, i) => <ProductCard product={p} eager={i < 4} headingLevel="h2" />)}
+    </div>
+
+    <div class="empty" id="empty" hidden>
+      <p class="lead">No guide matches “<span id="empty-q"></span>”.</p>
+      <p class="muted">Search looks in titles, descriptions and contents. Try a broader word, or clear the search to see every title.</p>
+      <button class="tcr-btn tcr-btn--secondary" type="button" id="clear">Clear the search</button>
+    </div>
+  </section>
+
+  {library && (
+    <aside class="wrap library-note">
+      <p>Expect to use more than a couple of these? <a href={u('/bundles/')}>The bundles</a> cost less than buying titles one by one, and the {library.title} holds all {library.includes.length}.</p>
+      <PriceNote />
+    </aside>
+  )}
+</Base>
+
+<style>
+  .shop-head { display: grid; gap: var(--space-4); padding-block: var(--space-7) var(--space-5); }
+  .shop-head .lead { max-width: 52ch; }
+  .controls { position: sticky; top: 84px; z-index: 10; display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-6); align-items: center; justify-content: space-between; padding: var(--space-3); border-radius: 30px; background: linear-gradient(180deg, rgba(var(--hl), 0.9), rgba(var(--hl), 0.75)); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 rgba(var(--hl), 1), inset 0 0 0 1px rgba(var(--sc), 0.07), var(--shadow-2); }
+  @media (prefers-color-scheme: dark) { .controls { background: rgba(21,32,48,0.85); } }
+  .search { display: grid; gap: var(--space-1); flex: 1 1 280px; max-width: 380px; }
+  .search__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .status { min-height: 1.5em; margin-block: var(--space-3) var(--space-4); }
+  .grid { display: grid; gap: var(--space-6) var(--space-5); grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 560px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 900px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 1180px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .grid :global(.tcr-card[hidden]) { display: none; }
+  .empty { display: grid; gap: var(--space-3); justify-items: start; padding-block: var(--space-6); max-width: 60ch; }
+  .library-note { display: grid; gap: var(--space-3); margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
+  .library-note p:first-child { font-family: var(--font-serif); font-size: 26px; line-height: 1.5; max-width: 60ch; }
+  .library-note :global(.price-note) { color: var(--ink-muted); }
+</style>
+
+<script>
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  const cards = [...document.querySelectorAll<HTMLElement>('#grid .tcr-card')];
+  const q = document.querySelector<HTMLInputElement>('#q')!;
+  const status = document.querySelector('#status')!;
+  const empty = document.querySelector<HTMLElement>('#empty')!;
+  const emptyQ = document.querySelector('#empty-q')!;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  cards.forEach((c, i) => (c.style.viewTransitionName = `card-${i}`));
+
+  // Indicatore che scivola sotto il filtro attivo.
+  const track = document.querySelector<HTMLElement>('.tcr-filter')!;
+  const thumb = document.createElement('span');
+  thumb.className = 'tcr-filter__thumb';
+  thumb.setAttribute('aria-hidden', 'true');
+  track.prepend(thumb);
+  track.classList.add('has-thumb');
+  const moveThumb = () => {
+    const on = chips.find((c) => c.getAttribute('aria-pressed') === 'true');
+    if (!on) return;
+    thumb.style.width = `${on.offsetWidth}px`;
+    thumb.style.height = `${on.offsetHeight}px`;
+    thumb.style.transform = `translate(${on.offsetLeft}px, ${on.offsetTop}px)`;
+  };
+  addEventListener('resize', moveThumb);
+
+  const params = new URLSearchParams(location.search);
+  let line = params.get('line') ?? 'all';
+  if (!chips.some((c) => c.dataset.filter === line)) line = 'all';
+  q.value = params.get('q') ?? '';
+
+  function apply() {
+    const term = q.value.trim().toLowerCase();
+    const words = term.split(/\s+/).filter(Boolean);
+    let shown = 0;
+    for (const c of cards) {
+      const okLine = line === 'all' || c.dataset.line === line;
+      const okText = words.every((w) => c.dataset.search!.includes(w));
+      c.hidden = !(okLine && okText);
+      if (!c.hidden) shown++;
+    }
+    chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.filter === line)));
+    moveThumb();
+    empty.hidden = shown > 0;
+    emptyQ.textContent = q.value.trim();
+    status.textContent = shown === cards.length ? '' : `Showing ${shown} of ${cards.length} titles.`;
+    const url = new URL(location.href);
+    line === 'all' ? url.searchParams.delete('line') : url.searchParams.set('line', line);
+    term ? url.searchParams.set('q', q.value.trim()) : url.searchParams.delete('q');
+    history.replaceState(null, '', url);
+  }
+  function update() {
+    const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+    if (doc.startViewTransition && !reduce) doc.startViewTransition(apply);
+    else apply();
+  }
+
+  chips.forEach((c) => c.addEventListener('click', () => { line = c.dataset.filter!; update(); }));
+  let t = 0;
+  q.addEventListener('input', () => { clearTimeout(t); t = window.setTimeout(apply, 120); });
+  document.querySelector('#clear')!.addEventListener('click', () => { q.value = ''; line = 'all'; update(); q.focus(); });
+  apply();
+</script>

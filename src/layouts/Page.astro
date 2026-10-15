@@ -1,0 +1,22 @@
+---
+import Base from './Base.astro';
+interface Props { title: string; description?: string; lead?: string; jsonLd?: object | object[]; noindex?: boolean }
+const { title, description, lead, jsonLd, noindex } = Astro.props;
+---
+<Base title={title} description={description} jsonLd={jsonLd} noindex={noindex}>
+  <article class="wrap page">
+    <header class="page__head">
+      <h1 class="page-title">{title}</h1>
+      {lead && <p class="lead muted">{lead}</p>}
+    </header>
+    <div class="prose page__body">
+      <slot />
+    </div>
+  </article>
+</Base>
+<style>
+  .page { display: grid; gap: var(--space-6); padding-block: var(--space-7) var(--space-6); }
+  @media (min-width: 960px) { .page { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--space-7); } .page__head { position: sticky; top: 112px; align-self: start; } }
+  .page__head { display: grid; gap: var(--space-4); }
+  .page__head .lead { max-width: 34ch; }
+</style>

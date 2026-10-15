@@ -1,0 +1,32 @@
+---
+// Un libro in 3D: copertina vera, dorso del colore della linea, spessore proporzionale alle pagine.
+import type { Product } from '../lib/catalog';
+import { coverSrc } from '../lib/catalog';
+interface Props {
+  product: Product;
+  size?: 's' | 'm' | 'l' | 'xl';
+  pose?: 'angle' | 'front' | 'spine';
+  eager?: boolean;
+  alt?: string;
+  class?: string;
+  minDepth?: number;
+  style?: string;
+}
+const { product: p, size = 'm', pose = 'angle', eager = false, alt = '', class: cls = '', minDepth = 0.035, style = '' } = Astro.props;
+const d = Math.min(0.16, Math.max(minDepth, 0.028 + p.pages / 650)).toFixed(3);
+const spine = `var(--spine-${p.line})`;
+const spineInk = `var(--spine-${p.line}-ink)`;
+const sizes = pose === 'spine' ? '120px' : { s: '190px', m: '220px', l: '300px', xl: '(min-width: 600px) 420px, 78vw' }[size];
+---
+<div class={`book book--${size} book--${pose} ${cls}`} style={`--d:${d};--spine:${spine};--spine-ink:${spineInk};${style}`} data-book>
+  <div class="book__body">
+    <img class="book__face book__front" src={coverSrc(p.id)} srcset={`${coverSrc(p.id, 400)} 400w, ${coverSrc(p.id)} 800w, ${coverSrc(p.id, 1600)} 1600w`} sizes={sizes} width="800" height="800" alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : undefined} />
+    <span class="book__face book__front-shade" aria-hidden="true"></span>
+    <span class="book__face book__back" aria-hidden="true"><span class="tcr-ring"></span></span>
+    <span class="book__face book__spine" aria-hidden="true"><span class="book__spine-title">{p.shortTitle ?? p.title}</span><span class="tcr-ring"></span></span>
+    <span class="book__face book__edge book__edge--side" aria-hidden="true"></span>
+    <span class="book__face book__edge book__edge--top" aria-hidden="true"></span>
+    <span class="book__face book__edge book__edge--bottom" aria-hidden="true"></span>
+  </div>
+  <span class="book__shadow" aria-hidden="true"></span>
+</div>

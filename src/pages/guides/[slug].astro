@@ -1,0 +1,188 @@
+---
+import { u } from '../../lib/url';
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import BuyButton from '../../components/BuyButton.astro';
+import PriceNote from '../../components/PriceNote.astro';
+import Book from '../../components/Book.astro';
+import Price from '../../components/Price.astro';
+import { config } from '../../config';
+import type { Product } from '../../lib/catalog';
+import { products, lineById, productsInLine, bundlesFor, coverSrc, imgSrc, pagesLabel, formatsLabel, formatPrice, saleOf } from '../../lib/catalog';
+import { productSchema, breadcrumbSchema } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug }, props: { product: p } }));
+}
+const { product: p } = Astro.props as { product: Product };
+const site = Astro.site!;
+const line = lineById(p.line)!;
+const related = productsInLine(p.line).filter((x) => x.id !== p.id).slice(0, 4);
+const inBundles = bundlesFor(p);
+const isSequence = /compendium|guide/i.test(p.kind);
+const ListTag = isSequence ? 'ol' : 'ul';
+---
+<Base
+  title={p.title}
+  description={`${p.summary} ${p.kind} for psychotherapists by Alberto Del Bove, ${pagesLabel(p.pages)}, ${formatsLabel(p.formats)}.`}
+  image={`/images/og/${p.id}.jpg`}
+  imageAlt={`Cover of ${p.title}`}
+  type="product"
+  jsonLd={[
+    productSchema(p, site),
+    breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides/' }, { name: p.title, path: `/guides/${p.slug}/` }], site),
+  ]}
+>
+  <nav class="wrap crumbs small" aria-label="Breadcrumb">
+    <a href={u('/guides/')}>Guides</a><span aria-hidden="true">/</span><a href={u(`/guides/?line=${line.id}`)}>{line.name}</a>
+  </nav>
+
+  <article class="wrap product">
+    <div class="product__media">
+      <div class="product__stage" data-turn>
+        <Book product={p} size="xl" eager alt={`Cover of ${p.title}: ${p.subtitle}`} />
+      </div>
+      <p class="product__hint small muted">{pagesLabel(p.pages)}: the book is as thick as the file is long. Move the pointer over it to turn it.</p>
+    </div>
+
+    <div class="product__body">
+      <header class="product__head">
+        <h1 class="product__title">{p.title}</h1>
+        <p class="product__subtitle">{p.subtitle}</p>
+      </header>
+
+      <div class="buy">
+        {config.showPrices && <Price price={p.price} sale={saleOf(p)} size="lg" class="buy__price" />}
+        <BuyButton href={p.etsyUrl} title={p.title} />
+        <p class="buy__facts small">
+          {p.kind}, {pagesLabel(p.pages)}{p.pagesNote ? ` (${p.pagesNote})` : ''}, {formatsLabel(p.formats)}, instant download.
+        </p>
+      </div>
+
+      <p class="lead">{p.description}</p>
+
+      {p.abstract && (
+        <section class="block abstract" aria-labelledby="abstract">
+          <h2 id="abstract">Abstract</h2>
+          <p>{p.abstract}</p>
+        </section>
+      )}
+
+      <section class="block" aria-labelledby="who">
+        <h2 id="who">Who it's for</h2>
+        <p>{p.whoFor}</p>
+      </section>
+
+      <section class="block" aria-labelledby="inside">
+        <h2 id="inside">Contents</h2>
+        <ListTag class:list={['contents', { 'contents--ol': isSequence }]}>
+          {p.inside.map((item) => <li>{item}</li>)}
+        </ListTag>
+      </section>
+
+      <section class="block" aria-labelledby="format">
+        <h2 id="format">Format and license</h2>
+        <dl class="facts">
+          <div><dt>Format</dt><dd>{formatsLabel(p.formats)}, {pagesLabel(p.pages)}</dd></div>
+          <div><dt>Delivery</dt><dd>Instant download from your Etsy account once payment clears</dd></div>
+          <div><dt>License</dt><dd>For one therapist's own clinical practice; worksheets may be printed for your clients</dd></div>
+          <div><dt>Status</dt><dd>Educational material for clinicians, not a validated instrument and not clinical advice</dd></div>
+        </dl>
+      </section>
+
+      {inBundles.length > 0 && (
+        <section class="block included" aria-labelledby="included">
+          <h2 id="included">Included in</h2>
+          <ul class="bundle-links">
+            {inBundles.map((b) => (
+              <li>
+                <a href={u(`/bundles/#${b.slug}`)}>
+                  <img src={imgSrc(b.images.hero)} width="800" height="800" alt="" loading="lazy" decoding="async" />
+                  <span><strong>{b.title}</strong><span class="small muted">{b.includes.length} titles{config.showPrices && b.price ? `, ${formatPrice(saleOf(b) ?? b.price)} on Etsy` : ''}</span></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <div class="buy buy--end">
+        <BuyButton href={p.etsyUrl} title={p.title} />
+        <a class="tcr-btn tcr-btn--quiet" href={u('/faq/')}>Questions about buying</a>
+      </div>
+      <PriceNote />
+    </div>
+  </article>
+
+  {related.length > 0 && (
+    <section class="wrap section related" aria-labelledby="related">
+      <h2 id="related" class="section-title">More from {line.name}</h2>
+      <div class="related__grid" data-stagger>
+        {related.map((r) => <ProductCard product={r} />)}
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .crumbs { display: flex; gap: var(--space-2); padding-block: var(--space-5) 0; color: var(--ink-muted); }
+  .crumbs a { color: var(--ink-muted); }
+  .product { display: grid; gap: var(--space-6); padding-block: var(--space-5) var(--space-7); grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 960px) { .product { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-7); align-items: start; } .product__media { position: sticky; top: 104px; } }
+  .product__stage { display: grid; place-items: center; padding: clamp(48px, 8vw, 96px) var(--space-4); background: radial-gradient(120% 90% at 50% 20%, var(--bg), var(--surface) 70%); border-radius: 24px; }
+  .product__stage :global(.book) { animation: turnIn 1.6s var(--ease-out) both 0.1s; }
+  @keyframes turnIn { from { --ry: 90deg; opacity: 0; translate: 0 30px; } }
+  .product__hint { margin-top: var(--space-3); text-align: center; }
+  @media (pointer: coarse) { .product__hint { display: none; } }
+  .product__body { display: grid; gap: var(--space-6); min-width: 0; max-width: 680px; }
+  .product__head { display: grid; gap: var(--space-3); }
+  .kind { color: var(--sage-ink); font-weight: 550; }
+  .product__title { font-size: clamp(46px, 6vw, 84px); line-height: 0.98; font-weight: 450; letter-spacing: -0.025em; }
+  .product__subtitle { font-family: var(--font-serif); font-style: italic; font-size: clamp(22px, 2.2vw, 26px); line-height: 1.35; color: var(--ink-muted); }
+  .buy { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-5); align-items: center; }
+  .buy__facts { color: var(--ink-muted); max-width: 40ch; }
+  .buy__price { flex-basis: 100%; }
+  .buy--end { padding-top: var(--space-5); border-top: 1px solid var(--rule); }
+  .block { display: grid; gap: var(--space-3); }
+  .block h2 { font-size: 32px; line-height: 1.1; font-weight: 500; }
+  .abstract { padding: var(--space-5) var(--space-5) var(--space-5); border-radius: var(--radius-card); background: linear-gradient(180deg, rgba(var(--hl), 0.9), var(--surface)); box-shadow: var(--edge-light), inset 0 0 0 1px rgba(var(--sc), 0.06), var(--shadow-1); }
+  .abstract p { font-size: 16px; line-height: 1.7; color: var(--ink); hyphens: auto; }
+  @media (prefers-color-scheme: dark) { .abstract { background: linear-gradient(180deg, var(--surface-2), var(--surface)); } }
+  .contents { margin: 0; padding: 0; list-style: none; display: grid; border-top: 1px solid var(--rule); }
+  .contents li { padding-block: var(--space-2); border-bottom: 1px solid var(--rule); font-size: 16px; line-height: 1.5; }
+  .contents--ol { counter-reset: ch; }
+  .contents--ol li { counter-increment: ch; display: grid; grid-template-columns: 2.2em minmax(0, 1fr); }
+  .contents--ol li::before { content: counter(ch); color: var(--sage-ink); font-family: var(--font-serif); font-variant-numeric: tabular-nums; }
+  .facts { margin: 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
+  .facts div { display: grid; grid-template-columns: minmax(0, 8em) minmax(0, 1fr); gap: var(--space-4); padding-block: var(--space-2); border-bottom: 1px solid var(--rule); font-size: 16px; line-height: 1.5; }
+  .facts dt { color: var(--ink-muted); }
+  .facts dd { margin: 0; }
+  .bundle-links { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+  .bundle-links a { display: flex; gap: var(--space-4); align-items: center; padding: var(--space-3) var(--space-4); border: 1px solid var(--rule); border-radius: 14px; color: var(--ink); text-decoration: none; transition: border-color 0.2s ease; }
+  .bundle-links a:hover { border-color: var(--sage); }
+  .bundle-links img { width: 64px; border-radius: 3px; }
+  .bundle-links span { display: grid; }
+  .bundle-links strong { font-family: var(--font-serif); font-weight: 550; font-size: 22px; line-height: 1.1; }
+  .product :global(.price-note) { color: var(--ink-muted); }
+  .related { border-top: 1px solid var(--rule); }
+  .related h2 { margin-bottom: var(--space-6); }
+  .related__grid { display: grid; gap: var(--space-6) var(--space-5); grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 560px) { .related__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1000px) { .related__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+</style>
+
+<script>
+  // Il libro segue il puntatore: si gira per mostrare dorso e spessore.
+  const stage = document.querySelector<HTMLElement>('[data-turn]');
+  const book = stage?.querySelector<HTMLElement>('.book');
+  if (stage && book && matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    stage.addEventListener('pointermove', (e) => {
+      const r = stage.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      book.style.setProperty('--ry', `${(28 + x * 80).toFixed(1)}deg`);
+      book.style.setProperty('--rx', `${(-4 - y * 14).toFixed(1)}deg`);
+    });
+    stage.addEventListener('pointerleave', () => { book.style.removeProperty('--ry'); book.style.removeProperty('--rx'); });
+  }
+</script>

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+# Mai file a pagamento nel repo
+*.pdf
+*.epub
+*.zip
+
+# Percorso locale della cartella del negozio
+.tcr-source

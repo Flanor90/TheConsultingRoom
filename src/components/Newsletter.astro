@@ -1,0 +1,35 @@
+---
+import { u } from '../lib/url';
+// Componente newsletter. Spento finché config.newsletter.enabled è false.
+// Quando è acceso: consenso esplicito obbligatorio, doppio opt-in gestito dal servizio scelto.
+import { config } from '../config';
+const nl = config.newsletter;
+const on = nl.enabled && nl.action;
+---
+{on && (
+  <form class="newsletter" method="post" action={nl.action} target="_blank">
+    <h2 class="newsletter__title">New guides and articles, by email</h2>
+    <label class="newsletter__label" for="nl-email">Email address</label>
+    <div class="newsletter__row">
+      <input class="tcr-input" id="nl-email" name={nl.emailField} type="email" autocomplete="email" required />
+      <button class="tcr-btn tcr-btn--on-night" type="submit">Subscribe</button>
+    </div>
+    <label class="newsletter__consent" for="nl-consent">
+      <input id="nl-consent" name="consent" type="checkbox" required />
+      <span>I agree to receive these emails and have read the <a href={u('/privacy/')}>privacy notice</a>.</span>
+    </label>
+    <p class="newsletter__note">{nl.privacyNote}</p>
+  </form>
+)}
+
+<style>
+  .newsletter { display: grid; gap: var(--space-3); max-width: 460px; }
+  .newsletter__title { font-size: 22px; line-height: 1.3; font-weight: 450; }
+  .newsletter__label { font-size: 13px; font-weight: 550; }
+  .newsletter__row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .newsletter__row .tcr-input { flex: 1 1 220px; }
+  .newsletter__consent { display: flex; gap: var(--space-2); align-items: start; font-size: 14px; line-height: 1.5; }
+  .newsletter__consent input { margin-top: 4px; inline-size: 18px; block-size: 18px; accent-color: var(--sage); }
+  .newsletter__consent a { color: var(--on-night); }
+  .newsletter__note { font-size: 13px; color: var(--on-night-muted); }
+</style>

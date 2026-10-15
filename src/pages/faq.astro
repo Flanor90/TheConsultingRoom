@@ -1,0 +1,72 @@
+---
+import Page from '../layouts/Page.astro';
+import { config } from '../config';
+
+const faqs = [
+  {
+    q: 'How do I receive the files?',
+    a: 'Everything is sold through Etsy. As soon as your payment is confirmed, Etsy makes the files available under Purchases in your account and emails you a download link. Nothing is shipped, and you can download the files again from your account whenever you need them.',
+  },
+  {
+    q: 'Which formats are the guides in?',
+    a: 'Every title is a PDF. The longer compendia also come as EPUB for e-readers, and each product page says which formats are included. The bundles arrive as a ZIP file containing the individual titles.',
+  },
+  {
+    q: 'Can I use the worksheets with my clients?',
+    a: 'Yes. Each file is licensed for use in your own clinical practice, and you can print the worksheets for your clients as often as your work requires. Several of them are written to be given within an ongoing therapeutic relationship, and the guide says so where it matters.',
+  },
+  {
+    q: 'Can I share a file with colleagues or my team?',
+    a: 'No. The license covers one therapist. Colleagues can buy their own copy, and training institutes or teams who want several licenses can ask for a proposal on the page for institutes.',
+  },
+  {
+    q: 'Are the worksheets validated instruments?',
+    a: 'No, and each listing says so. They are reflection and observation tools written from clinical practice, with no scoring, no norms and no diagnostic status. They support your judgment in the room rather than measure the patient.',
+  },
+  {
+    q: 'Do the guides offer clinical advice or supervision?',
+    a: 'No. The guides are educational material for qualified clinicians and trainees under supervision. They do not replace clinical training, supervision or the professional and ethical codes of your jurisdiction, and I cannot offer advice about specific patients through them.',
+  },
+  {
+    q: 'Do the guides carry continuing education credits?',
+    a: 'No. They are not accredited for CE or CPD credits in the US or elsewhere.',
+  },
+  {
+    q: "I'm not psychodynamically trained. Will this still be useful?",
+    a: 'Most of the material is written from a psychodynamic position, but it attends to things every orientation works with: the frame, the relationship and what changes in the room. Colleagues working in integrative, systemic, schema or ACT frameworks tend to use it without having to translate it.',
+  },
+  {
+    q: 'Why does the price on Etsy look different from this site?',
+    a: 'This site shows Etsy base prices in US dollars on the date they were last checked. Etsy shows the current price in your own currency, any shop sale running at the time and any tax that applies, and that is the price you pay.',
+  },
+];
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<Page title="Questions" lead="Buying, formats, licensing and what the guides are for." description="Answers about buying The Consulting Room's guides on Etsy: instant download, formats, use with clients, single-therapist license and what the guides are not." jsonLd={ld}>
+  <div class="faq">
+    {faqs.map((f) => (
+      <details>
+        <summary><h2>{f.q}</h2></summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+  <p class="muted">Something else? Write through the <a href={config.etsyShop} target="_blank" rel="noopener">Etsy shop</a>.</p>
+</Page>
+
+<style>
+  .faq { border-top: 1px solid var(--rule); }
+  details { border-bottom: 1px solid var(--rule); }
+  summary { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); padding-block: var(--space-4); cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary h2 { font-size: 21px !important; line-height: 1.35; font-weight: 450; margin: 0 !important; }
+  summary::after { content: ''; flex: none; width: 14px; height: 14px; border-right: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); transform: rotate(45deg) translate(-3px, -3px); transition: transform 0.25s var(--ease-out); }
+  details[open] summary::after { transform: rotate(225deg) translate(-3px, -3px); }
+  details p { padding-bottom: var(--space-5); color: var(--ink-muted); max-width: 62ch; }
+  details[open] p { animation: open 0.3s var(--ease-out); }
+  @keyframes open { from { opacity: 0; transform: translateY(-4px); } }
+</style>

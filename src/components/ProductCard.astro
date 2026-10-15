@@ -1,0 +1,32 @@
+---
+import { u } from '../lib/url';
+import type { Product } from '../lib/catalog';
+import { lineById, pagesLabel, formatsLabel, saleOf } from '../lib/catalog';
+import Price from './Price.astro';
+import { config } from '../config';
+import BuyButton from './BuyButton.astro';
+import Book from './Book.astro';
+interface Props { product: Product; eager?: boolean; headingLevel?: 'h2' | 'h3' }
+const { product: p, eager = false, headingLevel = 'h3' } = Astro.props;
+const H = headingLevel;
+const line = lineById(p.line);
+const search = [p.title, p.subtitle, p.summary, p.kind, line?.name, ...p.inside].join(' ').toLowerCase();
+---
+<article class="tcr-card" data-line={p.line} data-search={search} data-spotlight>
+  <a class="tcr-card__media" href={u(`/guides/${p.slug}/`)} tabindex="-1" aria-hidden="true">
+    <Book product={p} size="s" eager={eager} />
+  </a>
+  <H class="tcr-card__title"><a href={u(`/guides/${p.slug}/`)}>{p.title}</a></H>
+  <p class="tcr-card__summary">{p.summary}</p>
+  <div class="tcr-card__foot">
+    <span class="tcr-card__line">{line?.name}</span>
+    <span class="tcr-card__meta">{pagesLabel(p.pages)}, {formatsLabel(p.formats)}</span>
+    {config.showPrices && <Price price={p.price} sale={saleOf(p)} />}
+    <BuyButton href={p.etsyUrl} title={p.title} />
+  </div>
+</article>
+
+<style>
+  .tcr-card__title { margin-top: var(--space-3); }
+  .tcr-card__media :global(.book) { --w: clamp(150px, 15vw, 190px); }
+</style>

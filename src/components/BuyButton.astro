@@ -1,0 +1,6 @@
+---
+import EtsyIcon from './EtsyIcon.astro';
+interface Props { href: string; label?: string; variant?: 'primary' | 'secondary' | 'on-night'; title?: string; class?: string }
+const { href, label = 'Buy on Etsy', variant = 'primary', title, class: cls = '' } = Astro.props;
+---
+<a class={`tcr-btn tcr-btn--${variant} ${cls}`} href={href} target="_blank" rel="noopener" aria-label={title ? `${label}: ${title} (opens Etsy in a new tab)` : `${label} (opens in a new tab)`}>{label} <EtsyIcon /></a>

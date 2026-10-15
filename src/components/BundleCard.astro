@@ -1,0 +1,53 @@
+---
+import type { Bundle } from '../lib/catalog';
+import { formatPrice, separateTotal, pagesLabel, formatsLabel, bundleProducts, saleOf } from '../lib/catalog';
+import Price from './Price.astro';
+import { config } from '../config';
+import BuyButton from './BuyButton.astro';
+import Shelf from './Shelf.astro';
+interface Props { bundle: Bundle; headingLevel?: 'h2' | 'h3'; wide?: boolean }
+const { bundle: b, headingLevel = 'h3', wide = false } = Astro.props;
+const H = headingLevel;
+const sep = separateTotal(b);
+const sale = saleOf(b);
+const sepSale = sale ? separateTotal(b, true) : undefined;
+const n = b.includes.length;
+const items = bundleProducts(b);
+---
+<article class:list={['tcr-bundle', { 'tcr-bundle--best': b.best, 'tcr-bundle--wide': wide }]} id={b.slug} data-spotlight>
+  {b.best && <span class="tcr-bundle__flag">Lowest price per title</span>}
+  <div class="bundle__shelf">
+    <Shelf products={items} size="s" label={`Titles in ${b.title}`} />
+  </div>
+  <div class="bundle__text">
+    <H class="tcr-bundle__name">{b.title}</H>
+    <p class="tcr-bundle__facts">{n} titles, {pagesLabel(b.pages)}, {formatsLabel(b.formats)}{b.delivery ? `. ${b.delivery}` : ''}</p>
+    <p class="bundle-summary">{b.summary}</p>
+    {config.showPrices && b.price && (
+      <div class="tcr-bundle__price">
+        <Price price={b.price} sale={sale} size="lg" />
+        {sep && (
+          <p>
+            {sepSale ? (
+              <><span class="promo-on">The {n} titles bought separately, also on sale: {formatPrice(sepSale)}.</span><span class="promo-off">The {n} titles bought separately: {formatPrice(sep)}.</span></>
+            ) : (
+              <>The {n} titles bought separately: {formatPrice(sep)}.</>
+            )}
+          </p>
+        )}
+      </div>
+    )}
+    <BuyButton href={b.etsyUrl} label="View the bundle on Etsy" variant="on-night" title={b.title} />
+  </div>
+</article>
+
+<style>
+  .bundle__shelf { display: flex; justify-content: center; padding: var(--space-7) var(--space-3) var(--space-5); margin-inline: calc(-1 * var(--space-3)); overflow-x: auto; scrollbar-width: none; }
+  .bundle__shelf::-webkit-scrollbar { display: none; }
+  .bundle__text { display: grid; gap: var(--space-3); justify-items: start; }
+  .bundle-summary { color: var(--on-night); font-size: 16px; line-height: 1.55; max-width: 52ch; }
+  @media (min-width: 980px) {
+    .tcr-bundle--wide { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: center; gap: var(--space-6); }
+    .tcr-bundle--wide .bundle__shelf { order: 2; }
+  }
+</style>

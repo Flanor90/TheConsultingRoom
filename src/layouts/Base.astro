@@ -1,0 +1,96 @@
+---
+import '@fontsource-variable/cormorant-garamond/wght.css';
+import '@fontsource-variable/cormorant-garamond/wght-italic.css';
+import '@fontsource-variable/inter/wght.css';
+import serifUrl from '@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2?url';
+import interUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { config } from '../config';
+import { u } from '../lib/url';
+import { promotion, promoEndsAt, promoActiveAtBuild, promoEndsLabel } from '../lib/catalog';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'product' | 'article';
+  jsonLd?: object | object[];
+  noindex?: boolean;
+}
+const { title, description = config.description, image = '/images/og/default.jpg', imageAlt, type = 'website', jsonLd, noindex = false } = Astro.props;
+const fullTitle = title === config.name ? `${config.name}: clinical guides for therapists` : `${title} | ${config.name}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(u(image), Astro.site).href;
+const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const { analytics } = config;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1722" media="(prefers-color-scheme: dark)" />
+    {promotion && <script is:inline set:html={`if(Date.now()>${promoEndsAt})document.documentElement.classList.add('promo-ended')`} />}
+    <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+    <link rel="sitemap" href={u('/sitemap-index.xml')} />
+    <link rel="preload" href={serifUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interUrl} as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:site_name" content={config.name} />
+    <meta property="og:type" content={type === 'article' ? 'article' : type === 'product' ? 'product' : 'website'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+    <meta property="og:locale" content={config.locale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {ld.map((obj) => <script type="application/ld+json" set:html={JSON.stringify(obj)} />)}
+
+    {analytics.provider === 'plausible' && analytics.domain && (
+      <script defer data-domain={analytics.domain} src="https://plausible.io/js/script.js"></script>
+    )}
+    {analytics.provider === 'goatcounter' && analytics.code && (
+      <script async data-goatcounter={`https://${analytics.code}.goatcounter.com/count`} src="https://gc.zgo.at/count.js"></script>
+    )}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="progress" aria-hidden="true"></div>
+    {promoActiveAtBuild && promotion && (
+      <div class="promo-bar promo-on" role="note">
+        <span><strong>{promotion.label}:</strong> {promotion.percent}% off every guide and bundle on Etsy until {promoEndsLabel}.</span>
+        <a href={config.etsyShop} target="_blank" rel="noopener">Shop the sale</a>
+      </div>
+    )}
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import '../scripts/motion.ts';
+    </script>
+    <style>
+      .promo-bar { position: relative; z-index: 51; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 14px; padding: 9px var(--gutter); font-size: 14px; line-height: 1.4; text-align: center; color: var(--on-night); background: linear-gradient(90deg, #1e2a3a, #2b3d36 50%, #1e2a3a); box-shadow: inset 0 -1px 0 rgba(255,255,255,0.06); }
+      .promo-bar strong { font-weight: 600; color: #dfe8de; }
+      .promo-bar a { color: var(--on-night); text-decoration-color: var(--sage); white-space: nowrap; }
+      .promo-bar a:hover { color: #dfe8de; }
+      html.promo-ended .promo-bar { display: none; }
+    </style>
+  </body>
+</html>

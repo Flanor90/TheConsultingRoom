@@ -1,0 +1,95 @@
+---
+import { u } from '../lib/url';
+import Base from '../layouts/Base.astro';
+import BundleCard from '../components/BundleCard.astro';
+import PriceNote from '../components/PriceNote.astro';
+import Split from '../components/Split.astro';
+import { config } from '../config';
+import { bundles, lines, productsInLine, formatPrice, separateTotal, pagesLabel, saleOf } from '../lib/catalog';
+import Price from '../components/Price.astro';
+import { bundleSchema, breadcrumbSchema } from '../lib/schema';
+
+const site = Astro.site!;
+const cols = [...bundles].sort((a, b) => a.includes.length - b.includes.length);
+---
+<Base
+  title="Bundles"
+  description="Three bundles of clinical guides for psychotherapists: the AI in Therapy Complete Kit, the Psychodynamic Practice Bundle and The Consulting Room Complete Library. Compare what each includes."
+  image="/images/og/the-consulting-room-complete-library.jpg"
+  jsonLd={[...bundles.map((b) => bundleSchema(b, site)), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Bundles', path: '/bundles/' }], site)]}
+>
+  <section class="panel panel--night head">
+    <div class="wrap head__inner">
+      <Split as="h1" class="page-title" text="Bundles" now />
+      <p class="head__sub">Three ways to buy a whole line at once. Each costs less than its titles bought one by one, and the Complete Library holds everything in the shop.</p>
+      <div class="cards" data-stagger>
+        {[...cols].reverse().map((b) => <BundleCard bundle={b} headingLevel="h2" wide={b.best} />)}
+      </div>
+      <PriceNote />
+    </div>
+  </section>
+
+  <section class="wrap section" aria-labelledby="compare">
+    <h2 id="compare" class="section-title">What each bundle includes</h2>
+    <p class="muted intro">Every title in the shop, and the bundles it belongs to.</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="compare">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            {cols.map((b) => <th scope="col"><a href={`#${b.slug}`}>{b.title}</a></th>)}
+          </tr>
+        </thead>
+        {lines.map((l) => (
+          <tbody>
+            <tr class="line-row"><th scope="colgroup" colspan={cols.length + 1}>{l.name}</th></tr>
+            {productsInLine(l.id).map((p) => (
+              <tr>
+                <th scope="row"><a href={u(`/guides/${p.slug}/`)}>{p.title}</a><span class="pages">{pagesLabel(p.pages)}</span></th>
+                {cols.map((b) => (
+                  <td>{b.includes.includes(p.id) ? <><svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" /></svg><span class="visually-hidden">Included</span></> : <span class="visually-hidden">Not included</span>}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        ))}
+        <tfoot>
+          <tr><th scope="row">Titles</th>{cols.map((b) => <td>{b.includes.length}</td>)}</tr>
+          <tr><th scope="row">Pages</th>{cols.map((b) => <td>{b.pages}</td>)}</tr>
+          {config.showPrices && <tr><th scope="row">Bought separately</th>{cols.map((b) => {
+            const sale = saleOf(b);
+            return <td>{sale ? <><span class="promo-on">{formatPrice(separateTotal(b, true))}</span><span class="promo-off">{formatPrice(separateTotal(b))}</span></> : formatPrice(separateTotal(b))}</td>;
+          })}</tr>}
+          {config.showPrices && <tr class="strong"><th scope="row">Bundle on Etsy</th>{cols.map((b) => <td><Price price={b.price} sale={saleOf(b)} badge={false} /></td>)}</tr>}
+        </tfoot>
+      </table>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .head { padding-block: var(--space-7) var(--space-7); margin-top: var(--space-3); }
+  .head__inner { display: grid; gap: var(--space-5); }
+  .head__sub { color: var(--on-night-muted); max-width: 52ch; font-size: 19px; line-height: 1.55; }
+  .head :global(.price-note) { color: var(--on-night-muted); }
+  .cards { display: grid; gap: var(--space-5); grid-template-columns: minmax(0, 1fr); margin-block: var(--space-5); }
+  @media (min-width: 700px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 700px) { .cards > :global(:first-child) { grid-column: 1 / -1; } }
+  .cards :global(.tcr-bundle) { content-visibility: auto; contain-intrinsic-size: auto 760px; }
+  .table-wrap { content-visibility: auto; contain-intrinsic-size: auto 1400px; }
+  .intro { margin-block: var(--space-3) var(--space-5); }
+  .table-wrap { overflow-x: auto; border-top: 1.5px solid var(--ink); }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 16px; font-variant-numeric: tabular-nums; }
+  th, td { padding: var(--space-3) var(--space-3); border-bottom: 1px solid var(--rule); text-align: left; vertical-align: middle; }
+  thead th { font-family: var(--font-serif); font-weight: 550; font-size: 20px; line-height: 1.3; vertical-align: bottom; }
+  thead th:not(:first-child), td { text-align: center; width: 18%; }
+  thead a, tbody th a { color: var(--ink); text-decoration: none; }
+  thead a:hover, tbody th a:hover { text-decoration: underline; text-decoration-color: var(--sage); }
+  tbody th { font-weight: 400; }
+  .pages { display: block; font-size: 13px; color: var(--ink-muted); }
+  .line-row th { padding-top: var(--space-5); font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--sage-ink); border-bottom-color: var(--ink); }
+  td svg { display: inline-block; fill: var(--sage); stroke: var(--sage-ink); stroke-width: 1.5; }
+  tfoot th { font-weight: 550; text-align: left; }
+  tfoot tr.strong td :global(.price) { justify-content: center; }
+  tfoot tr.strong td, tfoot tr.strong th { font-family: var(--font-serif); font-size: 26px; font-weight: 550; border-bottom: 1.5px solid var(--ink); }
+</style>

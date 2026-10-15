@@ -1,0 +1,258 @@
+---
+import { u } from '../lib/url';
+import Base from '../layouts/Base.astro';
+import BundleCard from '../components/BundleCard.astro';
+import PriceNote from '../components/PriceNote.astro';
+import Book from '../components/Book.astro';
+import Shelf from '../components/Shelf.astro';
+import Split from '../components/Split.astro';
+import Portrait from '../components/Portrait.astro';
+import { existsSync } from 'node:fs';
+const hasPortrait = existsSync('public/images/author/portrait-480.webp');
+import { config } from '../config';
+import { lines, productsInLine, bundles } from '../lib/catalog';
+import { personSchema, websiteSchema } from '../lib/schema';
+
+const site = Astro.site!;
+const aiBooks = productsInLine('ai');
+const numberWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+const library = bundles.find((b) => b.best)!;
+const others = bundles.filter((b) => !b.best);
+const totalPages = library.pages;
+---
+<Base title={config.name} jsonLd={[websiteSchema(site), personSchema(site)]}>
+  <section class="hero" aria-labelledby="hero-title">
+    <svg class="hero__rings" viewBox="0 0 1000 700" aria-hidden="true" data-parallax="120">
+      <circle cx="560" cy="350" r="300" pathLength="1" />
+      <circle cx="700" cy="350" r="300" pathLength="1" />
+    </svg>
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <Split as="h1" id="hero-title" class="hero__title" text={config.tagline} now />
+        <p class="hero__sub">Compendia, observation grids and session tools for psychotherapists, delivered as instant downloads through Etsy.</p>
+        <div class="hero__actions">
+          <a class="tcr-btn tcr-btn--primary" href={u('/guides/')}>Browse the guides</a>
+          <a class="tcr-btn tcr-btn--secondary" href={config.etsyShop} target="_blank" rel="noopener">Visit the Etsy shop</a>
+        </div>
+      </div>
+
+      <div class="stage" aria-hidden="true" data-stage>
+        <div class="carousel" data-carousel style={`--n:${aiBooks.length}`}>
+          {aiBooks.map((p, i) => (
+            <div class="carousel__item" style={`--i:${i}`}>
+              <Book product={p} size="m" pose="front" eager={i < 2} />
+            </div>
+          ))}
+        </div>
+        <div class="stage__floor"></div>
+        <p class="stage__hint">Drag to turn the shelf</p>
+      </div>
+    </div>
+    <div class="wrap hero__foot">
+      <blockquote class="tcr-note" data-reveal>
+        “A system trained to maximize user satisfaction will, by the mechanics of its training, tend to agree with the person it is speaking to.”
+        <cite>From the preface of <a href={u('/guides/the-space-that-answers-back/')}>The Space That Answers Back</a></cite>
+      </blockquote>
+      <p class="hero__count" data-reveal><span data-count={totalPages}>{totalPages}</span> pages across {library.includes.length} titles, written and reviewed by one clinician.</p>
+    </div>
+  </section>
+
+  <section class="section lines panel panel--soft" aria-labelledby="lines-title">
+    <div class="wrap">
+      <h2 id="lines-title" class="section-title lines__title">Three shelves, one consulting room</h2>
+      <p class="lines__intro muted" >The AI line comes first because it answers the question colleagues are meeting now. The other two hold the ground it stands on. Point at a spine to take the book off the shelf.</p>
+      {lines.map((l, idx) => {
+        const items = productsInLine(l.id);
+        const n = items.length;
+        return (
+          <article class:list={['line', { 'line--flip': idx % 2 === 1 }]}>
+            <div class="line__text">
+              <h3 class="line__name"><a href={u(`/guides/?line=${l.id}`)}>{l.name}</a><span class="line__count">{n} titles</span></h3>
+              <p class="line__summary muted">{l.summary}</p>
+              <a class="tcr-btn tcr-btn--quiet" href={u(`/guides/?line=${l.id}`)}>See the {numberWords[n] ?? n} titles</a>
+            </div>
+            <div class="line__shelf">
+              <Shelf products={items} size="m" label={`${l.name} titles`} />
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="panel panel--night bundles-band" aria-labelledby="bundles-title">
+    <div class="wrap section">
+      <div class="bundles-head">
+        <h2 id="bundles-title" class="section-title">Bundles cost less than the titles bought one by one</h2>
+        <p>If you expect to use more than two guides from a line, a bundle is the better way to buy. The Complete Library holds everything in the shop.</p>
+      </div>
+      <div class="bundle-grid" data-stagger>
+        <BundleCard bundle={library} wide />
+        {others.map((b) => <BundleCard bundle={b} />)}
+      </div>
+      <div class="bundles-foot">
+        <a class="tcr-btn tcr-btn--quiet on-night-link" href={u('/bundles/')}>Compare the bundles title by title</a>
+        <PriceNote />
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap why" aria-labelledby="why-title">
+    <h2 id="why-title" class="section-title why__title">Why these guides</h2>
+    <blockquote class="why__quote">“A section that stays empty for months is information too.”<cite>From the observation grid in <a href={u('/guides/ai-observation-grid/')}>AI in the Consulting Room</a></cite></blockquote>
+    <dl class="why__list">
+      <div class="why__row">
+        <dt>Clinical, not generic</dt>
+        <dd>Each guide starts from a question that came up in a session and returns to the session: what to notice, what to ask, and where the work tends to go wrong. Nothing here was produced to fill a catalogue.</dd>
+      </div>
+      <div class="why__row">
+        <dt>Written by a practicing analyst</dt>
+        <dd>I see patients every week, and I write between sessions, in the language we use with colleagues. The vignettes are composite and fictional, and nothing pretends to more certainty than the field has.</dd>
+      </div>
+      <div class="why__row">
+        <dt>Honest about what the tools are</dt>
+        <dd>The worksheets and grids are reflection and observation tools. They have no scoring, norms or diagnostic status, and each page says so before you buy.</dd>
+      </div>
+      <div class="why__row">
+        <dt>Useful across orientations</dt>
+        <dd>Most of the material is written from a psychodynamic position, but it attends to things every orientation works with: the frame, the relationship, and what changes in the room.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="author" aria-labelledby="author-title">
+    <div class="wrap author__inner">
+      {hasPortrait ? <Portrait /> : <svg class="author__rings" viewBox="0 0 260 160" aria-hidden="true"><circle cx="100" cy="80" r="64" pathLength="1" data-draw /><circle cx="160" cy="80" r="64" pathLength="1" data-draw /></svg>}
+      <div class="author__text">
+        <h2 id="author-title" class="section-title">Who writes them</h2>
+        <p class="lead">I'm Alberto Del Bove, a psychologist and psychoanalytically oriented psychotherapist, licensed since 2018 and trained in Demand Analysis at SPS in Rome. I see adults online and in Itri, near Rome, and I write these guides between sessions, usually starting from a question that came up in the room.</p>
+        <a class="tcr-btn tcr-btn--secondary" href={u('/about/')}>More about the author</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ---------- Hero ---------- */
+  .hero { position: relative; overflow: hidden; padding-block: var(--space-6) var(--space-7); }
+  .hero__rings { position: absolute; inset-inline-end: -12%; inset-block-start: -4%; width: min(1100px, 120vw); height: auto; pointer-events: none; }
+  .hero__rings circle { fill: none; stroke-width: 1; stroke-dasharray: 1; stroke-dashoffset: 0; vector-effect: non-scaling-stroke; animation: draw 2.4s var(--ease-out) both 0.2s; }
+  .hero__rings circle:first-child { stroke: var(--sage); }
+  .hero__rings circle:last-child { stroke: var(--rule); animation-delay: 0.5s; }
+  @keyframes draw { from { stroke-dashoffset: 1; } }
+  .hero::before { content: ''; position: absolute; inset: -10% -10% auto 35%; height: 110%; background: radial-gradient(50% 50% at 55% 45%, rgba(156, 175, 154, 0.16), transparent 70%); pointer-events: none; }
+  .hero__grid { position: relative; display: grid; gap: var(--space-6); grid-template-columns: minmax(0, 1fr); align-items: center; }
+  @media (min-width: 980px) { .hero__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); min-height: min(76vh, 740px); } }
+  .hero__text { display: grid; gap: var(--space-5); }
+  .hero__text :global(.hero__title) { font-size: clamp(44px, 5.3vw, 84px); line-height: 0.98; font-weight: 400; letter-spacing: -0.028em; max-width: 15ch; }
+  .hero__sub { font-size: 19px; line-height: 1.55; color: var(--ink-muted); max-width: 44ch; animation: fadeUp 1s var(--ease-out) both 0.9s; }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); animation: fadeUp 1s var(--ease-out) both 1.05s; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } }
+
+  /* 3D carousel of the AI line */
+  .stage { position: relative; height: clamp(360px, 46vw, 560px); perspective: 1700px; perspective-origin: 50% 30%; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+  .stage:active { cursor: grabbing; }
+  .carousel { --r: clamp(170px, 19vw, 260px); --angle: -18deg; position: absolute; left: 50%; top: 46%; width: 0; height: 0; transform-style: preserve-3d; transform: rotateX(-9deg) rotateY(var(--angle)); }
+  .carousel__item { position: absolute; transform-style: preserve-3d; transform: rotateY(calc(var(--i) * 360deg / var(--n))) translateZ(var(--r)) translate(-50%, -50%); }
+  .carousel :global(.book) { perspective: none; transform-style: preserve-3d; --w: clamp(140px, 15vw, 200px); }
+  .carousel :global(.book__shadow) { display: none; }
+  .carousel :global(img) { -webkit-user-drag: none; pointer-events: none; }
+  .stage__floor { position: absolute; left: 12%; right: 12%; bottom: 8%; height: 16%; border-radius: 50%; background: radial-gradient(closest-side, rgba(var(--shadow-color), 0.18), transparent); }
+  .stage__hint { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; font-size: 13px; color: var(--ink-muted); animation: fadeUp 1s var(--ease-out) both 1.6s; }
+  @media (pointer: coarse) { .stage__hint { display: none; } }
+
+  .hero__foot { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-6); margin-top: var(--space-6); }
+  .hero__count { font-family: var(--font-serif); font-size: 22px; line-height: 1.3; max-width: 26ch; color: var(--ink-muted); }
+  .hero__count span { color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+
+  /* ---------- Lines as shelves ---------- */
+  .lines__title { max-width: 19ch; }
+  .lines__intro { max-width: 52ch; margin-top: var(--space-4); margin-bottom: var(--space-7); }
+  .line { display: grid; gap: var(--space-6); align-items: end; padding-block: var(--space-7); border-top: 1px solid var(--rule); }
+  @media (min-width: 980px) { .line { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } .line--flip .line__text { order: 2; } .line--flip .line__shelf { justify-content: flex-start; } }
+  .line__text { display: grid; gap: var(--space-3); justify-items: start; }
+  .line__name { font-size: clamp(40px, 4.6vw, 62px); line-height: 1; font-weight: 450; }
+  .line__name a { color: inherit; text-decoration: none; }
+  .line__count { display: block; margin-top: var(--space-3); font-family: var(--font-sans); font-size: 15px; font-weight: 450; letter-spacing: 0; color: var(--ink-muted); }
+  .line__summary { max-width: 44ch; margin-bottom: var(--space-2); }
+  .line__shelf { display: flex; justify-content: flex-end; padding: var(--space-7) var(--space-4) var(--space-5); margin-inline: calc(-1 * var(--space-4)); overflow-x: auto; scrollbar-width: none; }
+  .line__shelf::-webkit-scrollbar { display: none; }
+
+  /* ---------- Bundles ---------- */
+  .bundles-band { margin-top: var(--inset); }
+  .bundles-head { display: grid; gap: var(--space-4); max-width: 62ch; margin-bottom: var(--space-7); }
+  .bundles-head p { color: var(--on-night-muted); font-size: 18px; }
+  .bundle-grid { display: grid; gap: var(--space-5); grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 820px) { .bundle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bundle-grid > :global(:first-child) { grid-column: 1 / -1; } }
+  .bundles-foot { display: grid; gap: var(--space-4); margin-top: var(--space-6); color: var(--on-night-muted); }
+  .on-night-link { color: var(--on-night); justify-self: start; }
+  .on-night-link:hover { color: var(--sage); }
+
+  /* ---------- Why: an editorial list, not a row of cards ---------- */
+  .why { display: grid; gap: var(--space-6); grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 980px) { .why { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: 'title list' 'quote list'; column-gap: var(--space-7); } .why__title { grid-area: title; } .why__quote { grid-area: quote; align-self: start; position: sticky; top: 140px; } .why__list { grid-area: list; } }
+  .why__quote { margin: 0; font-family: var(--font-serif); font-style: italic; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.25; font-weight: 450; max-width: 18ch; color: var(--ink); }
+  .why__quote cite { display: block; margin-top: var(--space-4); font: normal 400 14px/1.5 var(--font-sans); color: var(--ink-muted); max-width: 32ch; }
+  .why__list { margin: 0; border-top: 1px solid var(--rule); }
+  .why__row { display: grid; gap: var(--space-2) var(--space-6); padding-block: var(--space-5) var(--space-6); border-bottom: 1px solid var(--rule); transition: background-color 0.5s var(--ease-out); }
+  @media (min-width: 700px) { .why__row { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); } }
+  .why__row dt { font-family: var(--font-serif); font-size: clamp(26px, 2.4vw, 32px); line-height: 1.08; font-weight: 500; }
+  .why__row dd { margin: 0; color: var(--ink-muted); }
+
+  /* ---------- Author ---------- */
+  .author { position: relative; }
+  .author__inner { display: grid; gap: var(--space-5); padding-block: var(--space-6) 0; align-items: center; }
+  @media (min-width: 860px) { .author__inner { grid-template-columns: 300px minmax(0, 1fr); gap: var(--space-7); } }
+  .author__rings { width: 260px; }
+  .author__rings circle { fill: none; stroke-width: 1.5; stroke-dasharray: 1; vector-effect: non-scaling-stroke; }
+  .author__rings circle:first-child { stroke: var(--sage); }
+  .author__rings circle:last-child { stroke: var(--ink); opacity: 0.5; }
+  .author__text { display: grid; gap: var(--space-5); justify-items: start; max-width: 60ch; }
+
+  @media (prefers-reduced-motion: reduce) { .stage { cursor: default; } .stage__hint { display: none; } }
+</style>
+
+<script>
+  // Carosello 3D: arriva girando, poi ruota piano; si ferma sotto il mouse e si trascina.
+  const stage = document.querySelector<HTMLElement>('[data-stage]');
+  const carousel = document.querySelector<HTMLElement>('[data-carousel]');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (stage && carousel && !reduce) {
+    let angle = -220;
+    let velocity = 5;
+    const idle = 0.12;
+    let dragging = false;
+    let hover = false;
+    let visible = true;
+    let lastX = 0;
+    const apply = () => carousel.style.setProperty('--angle', `${angle.toFixed(2)}deg`);
+    new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(stage);
+    const tick = () => {
+      if (visible && !dragging) {
+        velocity += ((hover ? 0 : idle) - velocity) * 0.035;
+        angle += velocity;
+        apply();
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    stage.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hover = true; });
+    stage.addEventListener('pointerleave', () => (hover = false));
+    stage.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      lastX = e.clientX;
+      stage.setPointerCapture(e.pointerId);
+    });
+    stage.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - lastX;
+      lastX = e.clientX;
+      velocity = dx * 0.35;
+      angle += velocity;
+      apply();
+    });
+    const end = () => (dragging = false);
+    stage.addEventListener('pointerup', end);
+    stage.addEventListener('pointercancel', end);
+  }
+</script>
