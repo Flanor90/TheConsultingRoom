@@ -1,10 +1,10 @@
 {
-  "pricesCheckedOn": "2026-10-15",
+  "pricesCheckedOn": "2026-10-16",
   "promotion": {
     "label": "Autumn opening offer",
     "percent": 30,
     "ends": "2026-11-10",
-    "note": "Every compendium and worksheet in the shop, as announced on Etsy. Sale prices below were read from the shop on 2026-10-15."
+    "note": "Every compendium and worksheet in the shop, as announced on Etsy. Sale prices below were read from the shop on 2026-10-16."
   },
   "lines": [
     {
@@ -63,10 +63,10 @@
         "Operational appendix: an observation grid for the clinical interview"
       ],
       "price": {
-        "amount": 17.58,
+        "amount": 17.63,
         "currency": "USD"
       },
-      "salePrice": 12.3,
+      "salePrice": 12.34,
       "etsyUrl": "https://www.etsy.com/listing/4549583610",
       "etsyTitle": "AI in Psychotherapy Clinical Guide for Therapists, When Clients Talk to Chatbots, Transference and Ethics, PDF + EPUB",
       "featured": true
@@ -95,10 +95,10 @@
         "Appendices: consent language, a snapshot of tools as of September 2026, the decision grid, a short glossary"
       ],
       "price": {
-        "amount": 16.29,
+        "amount": 16.34,
         "currency": "USD"
       },
-      "salePrice": 11.4,
+      "salePrice": 11.44,
       "etsyUrl": "https://www.etsy.com/listing/4582411717",
       "etsyTitle": "AI Tools for Therapists – Practical Clinical Guide for Psychotherapists, Session Notes, Prompts & Consent Templates (PDF + EPUB)",
       "featured": true
@@ -136,10 +136,10 @@
         "Operational appendix: an observation grid"
       ],
       "price": {
-        "amount": 19.8,
+        "amount": 19.86,
         "currency": "USD"
       },
-      "salePrice": 13.86,
+      "salePrice": 13.91,
       "etsyUrl": "https://www.etsy.com/listing/4566850963",
       "etsyTitle": "AI and Emotional Intelligence in Therapy - Psychodynamic Clinical Compendium for Therapists, Countertransference Guide, PDF"
     },
@@ -166,10 +166,10 @@
         "Appendix: a working bias check for your preferred model"
       ],
       "price": {
-        "amount": 17.58,
+        "amount": 17.63,
         "currency": "USD"
       },
-      "salePrice": 12.3,
+      "salePrice": 12.34,
       "etsyUrl": "https://www.etsy.com/listing/4567617810",
       "etsyTitle": "AI Bias in Therapy – Clinical Compendium for Psychotherapists, Cognitive Bias & LLM Prompts Guide, Psychodynamic PDF"
     },
@@ -201,10 +201,10 @@
         "One last thing"
       ],
       "price": {
-        "amount": 17.46,
+        "amount": 17.51,
         "currency": "USD"
       },
-      "salePrice": 12.22,
+      "salePrice": 12.26,
       "etsyUrl": "https://www.etsy.com/listing/4549656292",
       "etsyTitle": "AI in Therapy Observation Grid – Clinical Worksheet for Counselors (PDF)"
     },
@@ -266,10 +266,10 @@
         "Appendix: a psychodynamic reading grid for the assessment interview"
       ],
       "price": {
-        "amount": 12.89,
+        "amount": 12.93,
         "currency": "USD"
       },
-      "salePrice": 9.02,
+      "salePrice": 9.05,
       "etsyUrl": "https://www.etsy.com/listing/4549577485",
       "etsyTitle": "Adult ADHD: A Psychodynamic View | Clinical Compendium PDF for Psychotherapists | ADHD Therapy Resource | Instant Download"
     },
@@ -306,10 +306,10 @@
         "Operational appendix: an observation grid"
       ],
       "price": {
-        "amount": 17.58,
+        "amount": 17.63,
         "currency": "USD"
       },
-      "salePrice": 12.3,
+      "salePrice": 12.34,
       "etsyUrl": "https://www.etsy.com/listing/4549576279",
       "etsyTitle": "ADHD and Relational Trauma — A Psychodynamic Reading | Clinical Compendium PDF + EPUB for Therapists | Instant Download"
     },
@@ -338,10 +338,10 @@
         "Ten client worksheets, from \"My closeness thermometer\" and \"Our cycle\" for couples to \"A repair conversation\" and a secure moments log"
       ],
       "price": {
-        "amount": 17.46,
+        "amount": 17.51,
         "currency": "USD"
       },
-      "salePrice": 12.22,
+      "salePrice": 12.26,
       "etsyUrl": "https://www.etsy.com/listing/4593981153",
       "etsyTitle": "Attachment Theory Therapist Guide + 10 Client Worksheets, Adult Attachment Styles, Couples Therapy Tool, Psychotherapy PDF EPUB",
       "featured": true
@@ -371,12 +371,52 @@
         "One last thing"
       ],
       "price": {
-        "amount": 17.46,
+        "amount": 17.51,
         "currency": "USD"
       },
-      "salePrice": 12.22,
+      "salePrice": 12.26,
       "etsyUrl": "https://www.etsy.com/listing/4549954750",
       "etsyTitle": "Attachment and Relationship Worksheets for Therapists - Relational Mapping Tool | The Distance Map | Printable Therapy PDF"
+    },
+    {
+      "id": "4596700369",
+      "slug": "psychodynamic-quick-reference-guides",
+      "title": "Psychodynamic Quick Reference Guides",
+      "subtitle": "Thirteen one-page sheets for the moment between sessions",
+      "line": "psychodynamic",
+      "kind": "Quick reference sheets",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 18,
+      "summary": "A map, not a textbook, for when something happened in the room and you want to think before you act.",
+      "description": "Each page compresses a large literature into what I find myself reaching for between sessions: the demand behind the request, defenses, transference and countertransference, attachment strategies, ruptures, resistance, breaks and the frame. The sheets point rather than explain, and they are meant to be read after a difficult session or before supervision. Two templates, a one-page formulation and a session reflection note, turn a vague unease into material you can bring.",
+      "abstract": "This set of thirteen one-page reference sheets is designed for the interval between sessions, when a clinician wants an orienting map rather than a full text. It opens with a sheet on reading the demand before the first session, drawing on the Italian tradition of the analysis of the demand (Carli and Paniccia), which treats what a client asks for as an emotional symbolization of the relationship they hope for. Further sheets summarize defenses ordered by level of maturity, principles for working with them, common transference patterns, countertransference read as information about the relationship, attachment strategies as they appear in session, rupture and repair, resistance reframed as something being protected, breaks and endings, and the frame. Two printable templates support a working formulation and a private process note, and a list of key references closes the set.",
+      "whoFor": "Psychodynamic and integrative therapists who want a quick orientation after a session or before supervision, and trainees reading their first process notes alongside the defense and transference tables.",
+      "inside": [
+        "How to use the sheets",
+        "00 Reading the demand: before the first session",
+        "01 Defenses at a glance I: mature and neurotic",
+        "02 Defenses at a glance II: immature and primitive",
+        "03 Working with defenses",
+        "04 Transference patterns",
+        "05 Countertransference: feeling, meaning, move",
+        "06 Attachment strategies in the room",
+        "07 Rupture and repair",
+        "08 Resistance, reframed",
+        "09 Breaks and endings",
+        "10 The frame, and what crosses it",
+        "11 Template: a formulation on one page",
+        "12 Template: a session reflection note",
+        "Key references and further reading"
+      ],
+      "price": {
+        "amount": 11.64,
+        "currency": "USD"
+      },
+      "salePrice": 8.15,
+      "etsyUrl": "https://www.etsy.com/listing/4596700369",
+      "etsyTitle": "Psychodynamic Therapist Cheat Sheets, 13 Quick Reference Guides, Defense Mechanisms, Transference, Countertransference, Attachment, PDF"
     },
     {
       "id": "4549942109",
@@ -403,10 +443,10 @@
         "For the clinician: my own break, what changed in the field, what I have not asked"
       ],
       "price": {
-        "amount": 17.46,
+        "amount": 17.51,
         "currency": "USD"
       },
-      "salePrice": 12.22,
+      "salePrice": 12.26,
       "etsyUrl": "https://www.etsy.com/listing/4549942109",
       "etsyTitle": "Return to Therapy After a Break, Reconnection Worksheets for the First Session Back, Therapist Tool, PDF"
     },
@@ -434,10 +474,10 @@
         "One last thing"
       ],
       "price": {
-        "amount": 16.29,
+        "amount": 16.34,
         "currency": "USD"
       },
-      "salePrice": 11.4,
+      "salePrice": 11.44,
       "etsyUrl": "https://www.etsy.com/listing/4549942481",
       "etsyTitle": "Between-Session Mood and Sleep Tracker for Therapy Clients, Weekly Therapy Homework Worksheet, Printable PDF"
     },
@@ -468,10 +508,10 @@
         "For the grown-up in the room"
       ],
       "price": {
-        "amount": 15.12,
+        "amount": 15.16,
         "currency": "USD"
       },
-      "salePrice": 10.58,
+      "salePrice": 10.61,
       "etsyUrl": "https://www.etsy.com/listing/4549953970",
       "etsyTitle": "Emotion Regulation Worksheets for Children 6-8, Play Therapy Printable PDF"
     },
@@ -502,10 +542,10 @@
         "Clinician notes"
       ],
       "price": {
-        "amount": 16.29,
+        "amount": 16.34,
         "currency": "USD"
       },
-      "salePrice": 11.4,
+      "salePrice": 11.44,
       "etsyUrl": "https://www.etsy.com/listing/4549954076",
       "etsyTitle": "Adolescent Therapy Session Openers – Teen Counseling Tools (PDF Download)"
     },
@@ -534,10 +574,10 @@
         "For the parent: describing instead of correcting, your own September, what helped, honestly"
       ],
       "price": {
-        "amount": 17.46,
+        "amount": 17.51,
         "currency": "USD"
       },
-      "salePrice": 12.22,
+      "salePrice": 12.26,
       "etsyUrl": "https://www.etsy.com/listing/4549954248",
       "etsyTitle": "Back to School Anxiety Worksheets for Kids 9-12 and Parents, Child Therapy Psychoeducation, Printable PDF"
     },
@@ -568,10 +608,10 @@
         "Clinician notes"
       ],
       "price": {
-        "amount": 16.29,
+        "amount": 16.34,
         "currency": "USD"
       },
-      "salePrice": 11.4,
+      "salePrice": 11.44,
       "etsyUrl": "https://www.etsy.com/listing/4549954440",
       "etsyTitle": "Therapy Worksheets for Adults - Symptom Psychoeducation Handouts | Printable Therapist Resources | Trauma-Informed Client PDF"
     },
@@ -600,10 +640,10 @@
         "Clinician notes"
       ],
       "price": {
-        "amount": 9.26,
+        "amount": 3.34,
         "currency": "USD"
       },
-      "salePrice": 6.48,
+      "salePrice": 2.34,
       "etsyUrl": "https://www.etsy.com/listing/4549954972",
       "etsyTitle": "Visual Session Check-In Worksheet – Therapist Client Scales (PDF)"
     },
@@ -631,12 +671,94 @@
         "One last thing"
       ],
       "price": {
-        "amount": 23.32,
+        "amount": 23.39,
         "currency": "USD"
       },
-      "salePrice": 16.32,
+      "salePrice": 16.37,
       "etsyUrl": "https://www.etsy.com/listing/4551577806",
       "etsyTitle": "Holiday Family Boundaries Therapy Workbook, 20 Worksheets for Adult Clients, Family of Origin, Printable PDF"
+    },
+    {
+      "id": "4596708631",
+      "slug": "emotion-regulation-worksheets",
+      "title": "Emotion Regulation Worksheets",
+      "subtitle": "Fourteen printable handouts for adult clients",
+      "line": "tools",
+      "kind": "Client worksheets",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 18,
+      "summary": "Regulation as something learned with someone, before it is done alone: fourteen sheets for adult clients.",
+      "description": "Most regulation materials treat emotions as something to be managed. These worksheets start from a different place, where an emotion is a communication about the person and their relationships, and where calming down is first learned in the presence of someone steady. The fourteen sheets move from understanding and naming to noticing patterns, responding and planning, and they are written in plain language for adults who are either overwhelmed by their feelings or cut off from them.",
+      "abstract": "This pack of fourteen client worksheets supports emotion regulation work with adults who are flooded by their emotions or disconnected from them. It is grounded in two ideas: research on attachment and affect regulation, which suggests that the nervous system settles more easily in the presence of a steady other, and the analysis of the demand (Carli and Paniccia), which distinguishes emotions that are acted, often repeating an old relational script, from emotions that are felt, named and shared. The sheets follow a suggested sequence, from what emotions are for, the window of tolerance and the body, through vocabulary and intensity, waves, triggers and the stories clients tell themselves, to grounding, soothing, co-regulation, a weekly diary and a personal regulation plan. A short therapist guide and a list of sources accompany the worksheets.",
+      "whoFor": "Therapists and counselors working with adult clients on emotional overwhelm, shutdown or impulsive reactions, who want worksheets that keep the relationship at the center of the work.",
+      "inside": [
+        "For the therapist: how to use the pack",
+        "01 What emotions are for",
+        "02 My window of tolerance",
+        "03 Where I feel it",
+        "04 Finding the word",
+        "05 How strong is it?",
+        "06 Riding the wave",
+        "07 What set it off",
+        "08 The story I tell myself",
+        "09 Acting it or saying it",
+        "10 Grounding menu",
+        "11 Soothing the body",
+        "12 Who helps me settle",
+        "13 Weekly emotion diary",
+        "14 My regulation plan",
+        "Sources and further reading"
+      ],
+      "price": {
+        "amount": 10.46,
+        "currency": "USD"
+      },
+      "salePrice": 7.32,
+      "etsyUrl": "https://www.etsy.com/listing/4596708631",
+      "etsyTitle": "Emotion Regulation Worksheets for Adults, Window of Tolerance, Nervous System Regulation, Feelings Wheel, Therapy Handouts, Printable PDF"
+    },
+    {
+      "id": "4596730772",
+      "slug": "self-esteem-worksheets-for-adults",
+      "title": "Self-Esteem Worksheets for Adults",
+      "subtitle": "The inner critic, shame, conditions of worth and self-compassion",
+      "line": "tools",
+      "kind": "Client worksheets",
+      "formats": [
+        "PDF"
+      ],
+      "pages": 18,
+      "summary": "Low self-esteem read as an inner relationship with a critical voice that was once outside.",
+      "description": "Most self-esteem materials ask clients to think more positively about themselves. These fourteen worksheets start from the idea that low self-esteem is usually a relationship rather than a shortage of positive thoughts, a relationship with a critical voice that was once outside. They help the client meet that voice, ask whose it is and what it protects, tell shame from guilt, notice the conditions attached to their worth and slowly build a kinder way of being with themselves.",
+      "abstract": "This pack of fourteen client worksheets addresses self-esteem in adults whose sense of worth is fragile, conditional or under constant internal attack. It approaches low self-esteem as an internalized relationship with a critical voice rather than as a deficit of positive thinking. Three strands inform it: psychoanalytic thinking on the inner critic and on self-worth as first conferred through being seen (Kohut's mirroring), research on contingent self-worth and self-compassion (Crocker, Neff, Gilbert), and the analysis of the demand (Carli and Paniccia), which reads many of the demands clients place on themselves as inherited from a context. The sheets map where self-esteem is fragile, explore the critic's voice, origins, function and demands, distinguish shame from guilt, examine conditions of worth and support a kinder witness, accurate mirrors, fairer comparison and small acts of self-respect.",
+      "whoFor": "Therapists and counselors working with adult clients who live under a harsh inner critic, with chronic shame or with worth that depends on performance and approval.",
+      "inside": [
+        "For the therapist: how to use the pack",
+        "01 What self-esteem is, and isn't",
+        "02 Where my self-esteem is fragile",
+        "03 Meet the inner critic",
+        "04 Whose voice is it?",
+        "05 What the critic is trying to do",
+        "06 The demands I make on myself",
+        "07 Shame or guilt?",
+        "08 \"I'm OK only if…\"",
+        "09 Evidence I don't count",
+        "10 A kinder witness",
+        "11 Mirrors",
+        "12 The comparison trap",
+        "13 Small acts of self-respect",
+        "14 My self-worth statement",
+        "Sources and further reading"
+      ],
+      "price": {
+        "amount": 9.29,
+        "currency": "USD"
+      },
+      "salePrice": 6.5,
+      "etsyUrl": "https://www.etsy.com/listing/4596730772",
+      "etsyTitle": "Self Esteem Worksheets for Adults, Inner Critic, Self Compassion, Self Worth, Shame and Guilt, Therapy Handouts for Counselors, PDF"
     }
   ],
   "bundles": [
@@ -660,10 +782,10 @@
         "EPUB"
       ],
       "price": {
-        "amount": 49.1,
+        "amount": 49.25,
         "currency": "USD"
       },
-      "salePrice": 34.37,
+      "salePrice": 34.48,
       "etsyUrl": "https://www.etsy.com/listing/4595310008",
       "etsyTitle": "AI in Therapy Bundle for Therapists, 5 Clinical Guides on ChatGPT, Chatbots and the Therapeutic Relationship, 155 Pages PDF + EPUB",
       "images": {
@@ -691,10 +813,10 @@
         "EPUB"
       ],
       "price": {
-        "amount": 37.38,
+        "amount": 37.5,
         "currency": "USD"
       },
-      "salePrice": 26.16,
+      "salePrice": 26.25,
       "etsyUrl": "https://www.etsy.com/listing/4595316774",
       "etsyTitle": "Psychodynamic Therapy Bundle for Therapists, Attachment Theory, ADHD and Relational Trauma, Resistance, 125 Pages PDF + EPUB",
       "images": {
@@ -706,8 +828,8 @@
       "id": "4595319872",
       "slug": "the-consulting-room-complete-library",
       "title": "The Consulting Room Complete Library",
-      "summary": "All eighteen titles in the shop in one download, with a reading guide.",
-      "description": "Everything in the shop, across the three lines, delivered as one ZIP with a reading guide. It is the version for colleagues who expect to use the session tools and the compendia side by side, and would rather have the whole shelf than choose title by title.",
+      "summary": "Eighteen titles from across the three lines in one download, with a reading guide.",
+      "description": "Eighteen titles across the three lines, delivered as one ZIP with a reading guide. It is the version for colleagues who expect to use the session tools and the compendia side by side, and would rather have most of the shelf than choose title by title.",
       "line": "all",
       "includes": [
         "4549583610",
@@ -736,10 +858,10 @@
       ],
       "delivery": "One ZIP download with a reading guide",
       "price": {
-        "amount": 57.41,
+        "amount": 57.6,
         "currency": "USD"
       },
-      "salePrice": 40.19,
+      "salePrice": 40.32,
       "etsyUrl": "https://www.etsy.com/listing/4595319872",
       "etsyTitle": "Complete Therapist Library Bundle, 18 Clinical Guides and Therapy Worksheets, AI in Therapy, Attachment, Psychodynamic, 382 Pages PDF",
       "images": {
