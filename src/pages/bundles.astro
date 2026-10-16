@@ -5,12 +5,12 @@ import BundleCard from '../components/BundleCard.astro';
 import PriceNote from '../components/PriceNote.astro';
 import Split from '../components/Split.astro';
 import { config } from '../config';
-import { bundles, lines, productsInLine, formatPrice, separateTotal, pagesLabel, saleOf } from '../lib/catalog';
+import { bundles, orderedBundles, lines, productsInLine, formatPrice, separateTotal, pagesLabel, saleOf } from '../lib/catalog';
 import Price from '../components/Price.astro';
 import { bundleSchema, breadcrumbSchema } from '../lib/schema';
 
 const site = Astro.site!;
-const cols = [...bundles].sort((a, b) => a.includes.length - b.includes.length);
+const cols = orderedBundles;
 ---
 <Base
   title="Bundles"
@@ -22,8 +22,8 @@ const cols = [...bundles].sort((a, b) => a.includes.length - b.includes.length);
     <div class="wrap head__inner">
       <Split as="h1" class="page-title" text="Bundles" now />
       <p class="head__sub">Three ways to buy a whole line at once. Each costs less than its titles bought one by one, and the Complete Library holds everything in the shop.</p>
-      <div class="cards" data-stagger>
-        {[...cols].reverse().map((b) => <BundleCard bundle={b} headingLevel="h2" wide={b.best} />)}
+      <div class="cards">
+        {cols.map((b) => <BundleCard bundle={b} headingLevel="h2" wide={b.best} />)}
       </div>
       <PriceNote />
     </div>
@@ -64,6 +64,20 @@ const cols = [...bundles].sort((a, b) => a.includes.length - b.includes.length);
         </tfoot>
       </table>
     </div>
+    <div class="compare-stack">
+      {cols.map((b) => (
+        <section class="compare-stack__item" aria-labelledby={`stack-${b.slug}`}>
+          <h3 id={`stack-${b.slug}`}><a href={`#${b.slug}`}>{b.title}</a></h3>
+          <p class="small muted">{b.includes.length} titles, {b.pages} pages{config.showPrices && b.price ? <>, <Price price={b.price} sale={saleOf(b)} badge={false} /></> : null}</p>
+          <ul>
+            {lines.map((l) => {
+              const inLine = productsInLine(l.id).filter((p) => b.includes.includes(p.id));
+              return inLine.length ? <li><span class="compare-stack__line">{l.name}</span> {inLine.map((p, k) => <><a href={u(`/guides/${p.slug}/`)}>{p.title}</a>{k < inLine.length - 1 ? ', ' : ''}</>)}</li> : null;
+            })}
+          </ul>
+        </section>
+      ))}
+    </div>
   </section>
 </Base>
 
@@ -77,6 +91,16 @@ const cols = [...bundles].sort((a, b) => a.includes.length - b.includes.length);
   @media (min-width: 700px) { .cards > :global(:first-child) { grid-column: 1 / -1; } }
   .cards :global(.tcr-bundle) { content-visibility: auto; contain-intrinsic-size: auto 760px; }
   .table-wrap { content-visibility: auto; contain-intrinsic-size: auto 1400px; }
+  .compare-stack { display: none; }
+  @media (max-width: 699px) {
+    .table-wrap { display: none; }
+    .compare-stack { display: grid; gap: var(--space-4); }
+    .compare-stack__item { padding: var(--space-5); border-radius: var(--radius-card); background: linear-gradient(180deg, rgba(var(--hl), 0.9), var(--surface)); box-shadow: var(--edge-light), inset 0 0 0 1px rgba(var(--sc), 0.06), var(--shadow-1); display: grid; gap: var(--space-2); }
+    .compare-stack__item h3 { font-size: 26px; line-height: 1.1; }
+    .compare-stack__item h3 a { color: var(--ink); text-decoration: none; }
+    .compare-stack__item ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-3); font-size: 15px; line-height: 1.5; }
+    .compare-stack__line { display: block; font-size: 13px; font-weight: 600; color: var(--sage-ink); }
+  }
   .intro { margin-block: var(--space-3) var(--space-5); }
   .table-wrap { overflow-x: auto; border-top: 1.5px solid var(--ink); }
   table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 16px; font-variant-numeric: tabular-nums; }

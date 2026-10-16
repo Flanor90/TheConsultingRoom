@@ -35,7 +35,7 @@ const library = bundles.find((b) => b.best);
     </div>
     <p class="status small muted" id="status" aria-live="polite"></p>
 
-    <div class="grid" id="grid" data-stagger>
+    <div class="grid" id="grid">
       {sortedProducts.map((p, i) => <ProductCard product={p} eager={i < 4} headingLevel="h2" />)}
     </div>
 
@@ -57,8 +57,9 @@ const library = bundles.find((b) => b.best);
 <style>
   .shop-head { display: grid; gap: var(--space-4); padding-block: var(--space-7) var(--space-5); }
   .shop-head .lead { max-width: 52ch; }
-  .controls { position: sticky; top: 84px; z-index: 10; display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-6); align-items: center; justify-content: space-between; padding: var(--space-3); border-radius: 30px; background: linear-gradient(180deg, rgba(var(--hl), 0.9), rgba(var(--hl), 0.75)); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 rgba(var(--hl), 1), inset 0 0 0 1px rgba(var(--sc), 0.07), var(--shadow-2); }
-  @media (prefers-color-scheme: dark) { .controls { background: rgba(21,32,48,0.85); } }
+  .controls { position: relative; z-index: 10; display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-6); align-items: center; justify-content: space-between; padding: var(--space-3); border-radius: 30px; background: linear-gradient(180deg, #ffffff, #f8f8f5); box-shadow: inset 0 1px 0 rgba(var(--hl), 1), inset 0 0 0 1px rgba(var(--sc), 0.07), var(--shadow-2); }
+  @media (prefers-color-scheme: dark) { .controls { background: linear-gradient(180deg, #182434, #141e2c); } }
+  @media (min-width: 760px) { .controls { position: sticky; top: 92px; } }
   .search { display: grid; gap: var(--space-1); flex: 1 1 280px; max-width: 380px; }
   .search__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .status { min-height: 1.5em; margin-block: var(--space-3) var(--space-4); }

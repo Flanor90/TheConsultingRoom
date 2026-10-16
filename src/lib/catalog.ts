@@ -7,7 +7,6 @@ export type Product = {
   id: string;
   slug: string;
   title: string;
-  shortTitle?: string;
   subtitle: string;
   line: string;
   kind: string;
@@ -22,6 +21,7 @@ export type Product = {
   price?: Price;
   salePrice?: number;
   etsyUrl: string;
+  etsyTitle?: string;
   featured?: boolean;
 };
 export type Bundle = {
@@ -38,6 +38,7 @@ export type Bundle = {
   price?: Price;
   salePrice?: number;
   etsyUrl: string;
+  etsyTitle?: string;
   images: { hero: string; inside: string };
   best?: boolean;
 };
@@ -46,6 +47,8 @@ export const lines: Line[] = [...data.lines].sort((a, b) => a.order - b.order);
 export const products: Product[] = data.products as Product[];
 export const bundles: Bundle[] = data.bundles as Bundle[];
 export const pricesCheckedOn: string = data.pricesCheckedOn;
+/** Ordine unico dei bundle in tutto il sito: prima la libreria completa, poi l'ordine del file dati. */
+export const orderedBundles: Bundle[] = [...bundles].sort((a, b) => Number(!!b.best) - Number(!!a.best));
 
 /** Promozione in corso su Etsy. Finisce alla fine del giorno `ends` (ora del visitatore). */
 export type Promotion = { label: string; percent: number; ends: string; note?: string };

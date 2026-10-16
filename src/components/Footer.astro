@@ -46,9 +46,11 @@ const year = new Date().getFullYear();
   .footer-brand p { color: var(--on-night-muted); font-family: var(--font-serif); font-style: italic; font-size: 18px; line-height: 1.5; }
   .footer-mark { color: var(--on-night); }
   h2 { font-family: var(--font-sans); font-size: 13px; font-weight: 600; letter-spacing: 0.01em; color: var(--on-night-muted); margin-bottom: var(--space-3); }
-  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  ul a { display: inline-flex; align-items: center; min-height: 40px; }
   a:not(.tcr-btn) { color: var(--on-night); text-decoration-color: color-mix(in srgb, var(--sage) 70%, transparent); }
   a:not(.tcr-btn):hover { color: var(--sage); }
   .footer-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3) var(--space-6); margin-block-start: var(--space-7); padding-block-start: var(--space-5); border-block-start: 1px solid color-mix(in srgb, var(--on-night) 16%, transparent); font-size: 14px; color: var(--on-night-muted); }
-  .footer-base p:last-child { display: flex; gap: var(--space-4); }
+  .footer-base p:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-4); }
+  .footer-base a { display: inline-flex; align-items: center; min-height: 44px; }
 </style>

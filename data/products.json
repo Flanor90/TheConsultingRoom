@@ -68,6 +68,7 @@
       },
       "salePrice": 12.3,
       "etsyUrl": "https://www.etsy.com/listing/4549583610",
+      "etsyTitle": "AI in Psychotherapy Clinical Guide for Therapists, When Clients Talk to Chatbots, Transference and Ethics, PDF + EPUB",
       "featured": true
     },
     {
@@ -99,6 +100,7 @@
       },
       "salePrice": 11.4,
       "etsyUrl": "https://www.etsy.com/listing/4582411717",
+      "etsyTitle": "AI Tools for Therapists – Practical Clinical Guide for Psychotherapists, Session Notes, Prompts & Consent Templates (PDF + EPUB)",
       "featured": true
     },
     {
@@ -138,7 +140,8 @@
         "currency": "USD"
       },
       "salePrice": 13.86,
-      "etsyUrl": "https://www.etsy.com/listing/4566850963"
+      "etsyUrl": "https://www.etsy.com/listing/4566850963",
+      "etsyTitle": "AI and Emotional Intelligence in Therapy - Psychodynamic Clinical Compendium for Therapists, Countertransference Guide, PDF"
     },
     {
       "id": "4567617810",
@@ -167,13 +170,13 @@
         "currency": "USD"
       },
       "salePrice": 12.3,
-      "etsyUrl": "https://www.etsy.com/listing/4567617810"
+      "etsyUrl": "https://www.etsy.com/listing/4567617810",
+      "etsyTitle": "AI Bias in Therapy – Clinical Compendium for Psychotherapists, Cognitive Bias & LLM Prompts Guide, Psychodynamic PDF"
     },
     {
       "id": "4549656292",
       "slug": "ai-observation-grid",
       "title": "AI in the Consulting Room",
-      "shortTitle": "AI Observation Grid",
       "subtitle": "An eight-part observation grid for clinicians whose patients use AI",
       "line": "ai",
       "kind": "Observation grid",
@@ -202,7 +205,8 @@
         "currency": "USD"
       },
       "salePrice": 12.22,
-      "etsyUrl": "https://www.etsy.com/listing/4549656292"
+      "etsyUrl": "https://www.etsy.com/listing/4549656292",
+      "etsyTitle": "AI in Therapy Observation Grid – Clinical Worksheet for Counselors (PDF)"
     },
     {
       "id": "4558887971",
@@ -228,7 +232,8 @@
         "currency": "USD"
       },
       "salePrice": 1.56,
-      "etsyUrl": "https://www.etsy.com/listing/4558887971"
+      "etsyUrl": "https://www.etsy.com/listing/4558887971",
+      "etsyTitle": "Resistance in Therapy Reflection Worksheet for Therapists, Psychodynamic Clinical Note, Therapeutic Alliance, PDF"
     },
     {
       "id": "4549577485",
@@ -265,7 +270,8 @@
         "currency": "USD"
       },
       "salePrice": 9.02,
-      "etsyUrl": "https://www.etsy.com/listing/4549577485"
+      "etsyUrl": "https://www.etsy.com/listing/4549577485",
+      "etsyTitle": "Adult ADHD: A Psychodynamic View | Clinical Compendium PDF for Psychotherapists | ADHD Therapy Resource | Instant Download"
     },
     {
       "id": "4549576279",
@@ -304,7 +310,8 @@
         "currency": "USD"
       },
       "salePrice": 12.3,
-      "etsyUrl": "https://www.etsy.com/listing/4549576279"
+      "etsyUrl": "https://www.etsy.com/listing/4549576279",
+      "etsyTitle": "ADHD and Relational Trauma — A Psychodynamic Reading | Clinical Compendium PDF + EPUB for Therapists | Instant Download"
     },
     {
       "id": "4593981153",
@@ -336,6 +343,7 @@
       },
       "salePrice": 12.22,
       "etsyUrl": "https://www.etsy.com/listing/4593981153",
+      "etsyTitle": "Attachment Theory Therapist Guide + 10 Client Worksheets, Adult Attachment Styles, Couples Therapy Tool, Psychotherapy PDF EPUB",
       "featured": true
     },
     {
@@ -367,7 +375,8 @@
         "currency": "USD"
       },
       "salePrice": 12.22,
-      "etsyUrl": "https://www.etsy.com/listing/4549954750"
+      "etsyUrl": "https://www.etsy.com/listing/4549954750",
+      "etsyTitle": "Attachment and Relationship Worksheets for Therapists - Relational Mapping Tool | The Distance Map | Printable Therapy PDF"
     },
     {
       "id": "4549942109",
@@ -398,7 +407,8 @@
         "currency": "USD"
       },
       "salePrice": 12.22,
-      "etsyUrl": "https://www.etsy.com/listing/4549942109"
+      "etsyUrl": "https://www.etsy.com/listing/4549942109",
+      "etsyTitle": "Return to Therapy After a Break, Reconnection Worksheets for the First Session Back, Therapist Tool, PDF"
     },
     {
       "id": "4549942481",
@@ -428,7 +438,8 @@
         "currency": "USD"
       },
       "salePrice": 11.4,
-      "etsyUrl": "https://www.etsy.com/listing/4549942481"
+      "etsyUrl": "https://www.etsy.com/listing/4549942481",
+      "etsyTitle": "Between-Session Mood and Sleep Tracker for Therapy Clients, Weekly Therapy Homework Worksheet, Printable PDF"
     },
     {
       "id": "4549953970",
@@ -461,7 +472,8 @@
         "currency": "USD"
       },
       "salePrice": 10.58,
-      "etsyUrl": "https://www.etsy.com/listing/4549953970"
+      "etsyUrl": "https://www.etsy.com/listing/4549953970",
+      "etsyTitle": "Emotion Regulation Worksheets for Children 6-8, Play Therapy Printable PDF"
     },
     {
       "id": "4549954076",
@@ -494,7 +506,8 @@
         "currency": "USD"
       },
       "salePrice": 11.4,
-      "etsyUrl": "https://www.etsy.com/listing/4549954076"
+      "etsyUrl": "https://www.etsy.com/listing/4549954076",
+      "etsyTitle": "Adolescent Therapy Session Openers – Teen Counseling Tools (PDF Download)"
     },
     {
       "id": "4549954248",
@@ -525,7 +538,8 @@
         "currency": "USD"
       },
       "salePrice": 12.22,
-      "etsyUrl": "https://www.etsy.com/listing/4549954248"
+      "etsyUrl": "https://www.etsy.com/listing/4549954248",
+      "etsyTitle": "Back to School Anxiety Worksheets for Kids 9-12 and Parents, Child Therapy Psychoeducation, Printable PDF"
     },
     {
       "id": "4549954440",
@@ -558,7 +572,8 @@
         "currency": "USD"
       },
       "salePrice": 11.4,
-      "etsyUrl": "https://www.etsy.com/listing/4549954440"
+      "etsyUrl": "https://www.etsy.com/listing/4549954440",
+      "etsyTitle": "Therapy Worksheets for Adults - Symptom Psychoeducation Handouts | Printable Therapist Resources | Trauma-Informed Client PDF"
     },
     {
       "id": "4549954972",
@@ -589,7 +604,8 @@
         "currency": "USD"
       },
       "salePrice": 6.48,
-      "etsyUrl": "https://www.etsy.com/listing/4549954972"
+      "etsyUrl": "https://www.etsy.com/listing/4549954972",
+      "etsyTitle": "Visual Session Check-In Worksheet – Therapist Client Scales (PDF)"
     },
     {
       "id": "4551577806",
@@ -619,7 +635,8 @@
         "currency": "USD"
       },
       "salePrice": 16.32,
-      "etsyUrl": "https://www.etsy.com/listing/4551577806"
+      "etsyUrl": "https://www.etsy.com/listing/4551577806",
+      "etsyTitle": "Holiday Family Boundaries Therapy Workbook, 20 Worksheets for Adult Clients, Family of Origin, Printable PDF"
     }
   ],
   "bundles": [
@@ -648,6 +665,7 @@
       },
       "salePrice": 34.37,
       "etsyUrl": "https://www.etsy.com/listing/4595310008",
+      "etsyTitle": "AI in Therapy Bundle for Therapists, 5 Clinical Guides on ChatGPT, Chatbots and the Therapeutic Relationship, 155 Pages PDF + EPUB",
       "images": {
         "hero": "bundles/ai-in-therapy-complete-kit-hero",
         "inside": "bundles/ai-in-therapy-complete-kit-inside"
@@ -678,6 +696,7 @@
       },
       "salePrice": 26.16,
       "etsyUrl": "https://www.etsy.com/listing/4595316774",
+      "etsyTitle": "Psychodynamic Therapy Bundle for Therapists, Attachment Theory, ADHD and Relational Trauma, Resistance, 125 Pages PDF + EPUB",
       "images": {
         "hero": "bundles/psychodynamic-practice-bundle-hero",
         "inside": "bundles/psychodynamic-practice-bundle-inside"
@@ -722,6 +741,7 @@
       },
       "salePrice": 40.19,
       "etsyUrl": "https://www.etsy.com/listing/4595319872",
+      "etsyTitle": "Complete Therapist Library Bundle, 18 Clinical Guides and Therapy Worksheets, AI in Therapy, Attachment, Psychodynamic, 382 Pages PDF",
       "images": {
         "hero": "bundles/the-consulting-room-complete-library-hero",
         "inside": "bundles/the-consulting-room-complete-library-inside"

@@ -18,7 +18,7 @@ const current = (href: string) => path === href || (href !== u('/') && path.star
     <a class="tcr-wordmark" href={u('/')} aria-label="The Consulting Room, home"><span class="tcr-ring" aria-hidden="true"></span>The Consulting Room</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.6" /></svg>
-      Menu
+      <span class="menu-toggle__label">Menu</span>
     </button>
     <nav id="site-nav" class="tcr-nav" aria-label="Main">
       {links.map((l) => <a href={l.href} aria-current={current(l.href) ? 'page' : undefined}>{l.label}</a>)}
@@ -32,14 +32,14 @@ const current = (href: string) => path === href || (href !== u('/') && path.star
   .site-header__bar {
     max-width: calc(var(--page-max) + 2 * var(--space-5)); margin-inline: auto;
     padding: 8px 8px 8px var(--space-5); border-radius: var(--radius-pill);
-    background: linear-gradient(180deg, rgba(var(--hl), 0.82), rgba(var(--hl), 0.66));
-    backdrop-filter: saturate(1.6) blur(18px); -webkit-backdrop-filter: saturate(1.6) blur(18px);
+    background: linear-gradient(180deg, #ffffff, #f8f8f5);
     box-shadow: inset 0 1px 0 rgba(var(--hl), 0.9), inset 0 0 0 1px rgba(var(--sc), 0.07), 0 1px 2px rgba(var(--sc), 0.05);
     transition: box-shadow 0.5s var(--ease-out), background 0.5s var(--ease-out);
   }
-  @media (prefers-color-scheme: dark) { .site-header__bar { background: linear-gradient(180deg, rgba(21,32,48,0.85), rgba(15,23,34,0.75)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.06); } }
+  @media (prefers-color-scheme: dark) { .site-header__bar { background: linear-gradient(180deg, #182434, #141e2c); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.06); } }
   .site-header[data-scrolled] .site-header__bar { box-shadow: inset 0 1px 0 rgba(var(--hl), 0.9), inset 0 0 0 1px rgba(var(--sc), 0.08), 0 2px 4px rgba(var(--sc), 0.05), 0 18px 40px -18px rgba(var(--sc), 0.35); }
-  .nav-etsy { min-block-size: 42px; padding: var(--space-2) var(--space-4); }
+  .tcr-nav a:not(.tcr-btn) { padding-block: 12px; }
+  .nav-etsy { min-block-size: 44px; padding: var(--space-2) var(--space-4); }
   .menu-toggle { display: none; align-items: center; gap: var(--space-2); min-block-size: 44px; padding: var(--space-2) var(--space-4); border: 0; border-radius: var(--radius-pill); background: linear-gradient(180deg, rgba(var(--hl), 1), var(--surface)); box-shadow: inset 0 0 0 1px rgba(var(--sc), 0.18), 0 4px 10px -6px rgba(var(--sc), 0.4); color: var(--ink); font: 550 15px/1 var(--font-sans); cursor: pointer; }
   .menu-toggle svg path { transition: transform 0.4s var(--ease-out), opacity 0.3s; transform-origin: center; }
   .site-header[data-open] .menu-toggle svg path { transform: scaleX(0.6); }
@@ -71,6 +71,8 @@ const current = (href: string) => path === href || (href !== u('/') && path.star
   toggle?.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') !== 'true';
     toggle.setAttribute('aria-expanded', String(open));
+    const label = toggle.querySelector('.menu-toggle__label');
+    if (label) label.textContent = open ? 'Close' : 'Menu';
     header?.toggleAttribute('data-open', open);
   });
 </script>

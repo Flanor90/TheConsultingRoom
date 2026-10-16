@@ -3,15 +3,15 @@
 // dopo quella data il browser nasconde lo sconto da solo (classe promo-ended su <html>).
 import type { Price as P } from '../lib/catalog';
 import { formatPrice, promotion, promoEndsLabel } from '../lib/catalog';
-interface Props { price?: P; sale?: P; size?: 'sm' | 'lg'; badge?: boolean; class?: string }
-const { price, sale, size = 'sm', badge = true, class: cls = '' } = Astro.props;
+interface Props { price?: P; sale?: P; size?: 'sm' | 'lg'; badge?: boolean; was?: boolean; class?: string }
+const { price, sale, size = 'sm', badge = true, was = true, class: cls = '' } = Astro.props;
 ---
 {price && (
   sale ? (
     <span class={`price price--${size} ${cls}`}>
       <span class="price__sale">
         <strong class="price__now">{formatPrice(sale)}</strong>
-        <s class="price__was"><span class="visually-hidden">Regular price </span>{formatPrice(price)}</s>
+        {was && <s class="price__was"><span class="visually-hidden">Regular price </span>{formatPrice(price)}</s>}
         {badge && promotion && <span class="price__badge">{promotion.percent}% off until {promoEndsLabel}</span>}
       </span>
       <strong class="price__base">{formatPrice(price)}</strong>

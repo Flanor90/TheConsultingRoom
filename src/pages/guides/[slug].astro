@@ -57,15 +57,18 @@ const ListTag = isSequence ? 'ol' : 'ul';
         <p class="buy__facts small">
           {p.kind}, {pagesLabel(p.pages)}{p.pagesNote ? ` (${p.pagesNote})` : ''}, {formatsLabel(p.formats)}, instant download.
         </p>
+        <p class="buy__etsy small">
+          {p.etsyTitle && <>On Etsy it is listed as “{p.etsyTitle}”. </>}After payment the file is in your Etsy purchases, and Etsy emails you the download link.
+        </p>
       </div>
 
       <p class="lead">{p.description}</p>
 
       {p.abstract && (
-        <section class="block abstract" aria-labelledby="abstract">
-          <h2 id="abstract">Abstract</h2>
+        <details class="block abstract">
+          <summary><h2 id="abstract">Abstract</h2><span class="abstract__toggle small">Read the abstract</span></summary>
           <p>{p.abstract}</p>
-        </section>
+        </details>
       )}
 
       <section class="block" aria-labelledby="who">
@@ -117,7 +120,7 @@ const ListTag = isSequence ? 'ol' : 'ul';
   {related.length > 0 && (
     <section class="wrap section related" aria-labelledby="related">
       <h2 id="related" class="section-title">More from {line.name}</h2>
-      <div class="related__grid" data-stagger>
+      <div class="related__grid">
         {related.map((r) => <ProductCard product={r} />)}
       </div>
     </section>
@@ -125,7 +128,8 @@ const ListTag = isSequence ? 'ol' : 'ul';
 </Base>
 
 <style>
-  .crumbs { display: flex; gap: var(--space-2); padding-block: var(--space-5) 0; color: var(--ink-muted); }
+  .crumbs { display: flex; align-items: center; gap: var(--space-2); padding-block: var(--space-4) 0; color: var(--ink-muted); }
+  .crumbs a { display: inline-flex; align-items: center; min-height: 44px; }
   .crumbs a { color: var(--ink-muted); }
   .product { display: grid; gap: var(--space-6); padding-block: var(--space-5) var(--space-7); grid-template-columns: minmax(0, 1fr); }
   @media (min-width: 960px) { .product { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-7); align-items: start; } .product__media { position: sticky; top: 104px; } }
@@ -134,6 +138,12 @@ const ListTag = isSequence ? 'ol' : 'ul';
   @keyframes turnIn { from { --ry: 90deg; opacity: 0; translate: 0 30px; } }
   .product__hint { margin-top: var(--space-3); text-align: center; }
   @media (pointer: coarse) { .product__hint { display: none; } }
+  @media (max-width: 959px) {
+    .product { gap: var(--space-5); padding-top: var(--space-3); }
+    .product__stage { padding: var(--space-5) var(--space-4); }
+    .product__stage :global(.book) { --w: min(56vw, 300px); }
+    .product__hint { display: none; }
+  }
   .product__body { display: grid; gap: var(--space-6); min-width: 0; max-width: 680px; }
   .product__head { display: grid; gap: var(--space-3); }
   .kind { color: var(--sage-ink); font-weight: 550; }
@@ -141,12 +151,19 @@ const ListTag = isSequence ? 'ol' : 'ul';
   .product__subtitle { font-family: var(--font-serif); font-style: italic; font-size: clamp(22px, 2.2vw, 26px); line-height: 1.35; color: var(--ink-muted); }
   .buy { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-5); align-items: center; }
   .buy__facts { color: var(--ink-muted); max-width: 40ch; }
+  .buy__etsy { flex-basis: 100%; color: var(--ink-muted); max-width: 60ch; }
   .buy__price { flex-basis: 100%; }
   .buy--end { padding-top: var(--space-5); border-top: 1px solid var(--rule); }
   .block { display: grid; gap: var(--space-3); }
   .block h2 { font-size: 32px; line-height: 1.1; font-weight: 500; }
   .abstract { padding: var(--space-5) var(--space-5) var(--space-5); border-radius: var(--radius-card); background: linear-gradient(180deg, rgba(var(--hl), 0.9), var(--surface)); box-shadow: var(--edge-light), inset 0 0 0 1px rgba(var(--sc), 0.06), var(--shadow-1); }
-  .abstract p { font-size: 16px; line-height: 1.7; color: var(--ink); hyphens: auto; }
+  .abstract p { font-size: 16px; line-height: 1.7; color: var(--ink); margin-top: var(--space-3); }
+  .abstract summary { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4); cursor: pointer; list-style: none; min-height: 44px; }
+  .abstract summary::-webkit-details-marker { display: none; }
+  .abstract__toggle { color: var(--sage-ink); text-decoration: underline; text-decoration-color: var(--sage); text-underline-offset: 0.22em; }
+  .abstract[open] .abstract__toggle { visibility: hidden; }
+  .abstract[open] p { animation: abstract-in 0.4s var(--ease-out); }
+  @keyframes abstract-in { from { opacity: 0; transform: translateY(-4px); } }
   @media (prefers-color-scheme: dark) { .abstract { background: linear-gradient(180deg, var(--surface-2), var(--surface)); } }
   .contents { margin: 0; padding: 0; list-style: none; display: grid; border-top: 1px solid var(--rule); }
   .contents li { padding-block: var(--space-2); border-bottom: 1px solid var(--rule); font-size: 16px; line-height: 1.5; }

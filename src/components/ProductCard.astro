@@ -12,7 +12,7 @@ const H = headingLevel;
 const line = lineById(p.line);
 const search = [p.title, p.subtitle, p.summary, p.kind, line?.name, ...p.inside].join(' ').toLowerCase();
 ---
-<article class="tcr-card" data-line={p.line} data-search={search} data-spotlight>
+<article class="tcr-card" data-line={p.line} data-search={search}>
   <a class="tcr-card__media" href={u(`/guides/${p.slug}/`)} tabindex="-1" aria-hidden="true">
     <Book product={p} size="s" eager={eager} />
   </a>

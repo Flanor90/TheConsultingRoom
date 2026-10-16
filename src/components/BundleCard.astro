@@ -13,9 +13,9 @@ const sale = saleOf(b);
 const sepSale = sale ? separateTotal(b, true) : undefined;
 const n = b.includes.length;
 const items = bundleProducts(b);
+const per = (pr?: { amount: number; currency: string }) => (pr ? formatPrice({ amount: Math.round((pr.amount / n) * 100) / 100, currency: pr.currency }) : '');
 ---
-<article class:list={['tcr-bundle', { 'tcr-bundle--best': b.best, 'tcr-bundle--wide': wide }]} id={b.slug} data-spotlight>
-  {b.best && <span class="tcr-bundle__flag">Lowest price per title</span>}
+<article class:list={['tcr-bundle', { 'tcr-bundle--best': b.best, 'tcr-bundle--wide': wide }]} id={b.slug}>
   <div class="bundle__shelf">
     <Shelf products={items} size="s" label={`Titles in ${b.title}`} />
   </div>
@@ -25,15 +25,19 @@ const items = bundleProducts(b);
     <p class="bundle-summary">{b.summary}</p>
     {config.showPrices && b.price && (
       <div class="tcr-bundle__price">
-        <Price price={b.price} sale={sale} size="lg" />
+        <div class="tcr-bundle__price-row">
+          <Price price={b.price} sale={sale} size="lg" was={false} badge={!!sale} />
+          {b.best && <span class="tcr-bundle__flag">Lowest price per title</span>}
+        </div>
         {sep && (
-          <p>
-            {sepSale ? (
-              <><span class="promo-on">The {n} titles bought separately, also on sale: {formatPrice(sepSale)}.</span><span class="promo-off">The {n} titles bought separately: {formatPrice(sep)}.</span></>
-            ) : (
-              <>The {n} titles bought separately: {formatPrice(sep)}.</>
-            )}
-          </p>
+          sepSale && sale ? (
+            <p>
+              <span class="promo-on">{per(sale)} a title. Bought one by one, even on sale: {formatPrice(sepSale)}.</span>
+              <span class="promo-off">{per(b.price)} a title. Bought one by one: {formatPrice(sep)}.</span>
+            </p>
+          ) : (
+            <p>{per(b.price)} a title. Bought one by one: {formatPrice(sep)}.</p>
+          )
         )}
       </div>
     )}
@@ -42,8 +46,7 @@ const items = bundleProducts(b);
 </article>
 
 <style>
-  .bundle__shelf { display: flex; justify-content: center; padding: var(--space-7) var(--space-3) var(--space-5); margin-inline: calc(-1 * var(--space-3)); overflow-x: auto; scrollbar-width: none; }
-  .bundle__shelf::-webkit-scrollbar { display: none; }
+  .bundle__shelf { min-width: 0; padding: var(--space-7) 0 var(--space-5); }
   .bundle__text { display: grid; gap: var(--space-3); justify-items: start; }
   .bundle-summary { color: var(--on-night); font-size: 16px; line-height: 1.55; max-width: 52ch; }
   @media (min-width: 980px) {
