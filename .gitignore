@@ -9,3 +9,6 @@ dist/
 
 # Percorso locale della cartella del negozio
 .tcr-source
+
+# Note locali di Impeccable (critiche salvate)
+.impeccable/
